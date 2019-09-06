@@ -1,0 +1,7 @@
+package com.gaoxing.lesson05;
+
+public class SysoCai extends SysoFather{
+	public void reSrcOfCai(String name) {
+		System.out.println(name+"Ìí¼Ó²ÊÉ«Ä«Ö­");
+	}
+}

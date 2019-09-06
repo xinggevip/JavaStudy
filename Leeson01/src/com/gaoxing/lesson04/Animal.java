@@ -1,0 +1,15 @@
+package com.gaoxing.lesson04;
+
+public class Animal {
+	String name;
+	public Animal(String name){
+		this.name = name;
+	}
+	public void run(){
+		System.out.println(name + "ÕıÔÚÅÜ");
+	}
+	public void eat(){
+		
+	}
+	
+}
