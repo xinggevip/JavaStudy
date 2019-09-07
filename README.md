@@ -423,13 +423,20 @@ public  或者  默认值
 
 在内部类当中可以访问外部类成员
 
+在内部类当中不能有静态成员
+
 ```java
 class Outter{// 外部类
-	String name = "Hello";
+	String name = "OutterStr";
 	
 	class Inner{// 内部类
+		// 不能有静态成员
+		String name = "InnerSTr";
 		void test() {
+			String name = "TestStr";
 			System.out.println(name);
+			System.out.println(this.name);
+			System.out.println(Outter.this.name);
 		}
 	}
 }
@@ -441,12 +448,233 @@ public class InnerClass {
         // 创建内部类
         // 创建内部类当中，会有外部类引用
 		Outter.Inner in = out.new Inner();
-		in.test();// Hello
+		in.test();
 
 	}
 
 }
 ```
 
-![1567777554782](https://github.com/xinggevip/JavaStudy/blob/master/SRC/imgs/1567777554782.png)
+![1567777554782](https://raw.githubusercontent.com/xinggevip/JavaStudy/master/SRC/imgs/1567777554782.png)
+
+**静态内部类：**
+
+在内部类前面加上static
+
+静态内部类是不需要创建外部对象
+
+在静态内部类当中，没有外部类引用
+
+静态内部类，是可以访问外部类的静态成员
+
+访问静态内部类当中的静态成员Outter.Inner.color
+
+静态内部类可以定义静态成员，也可以定义非静态成员
+
+```java
+class OutterTwo{
+	static String name = "OutterStr";
+	int age = 10;
+	static class Inner{
+		static String color = "red";
+		void test() {
+			System.out.println(name);
+			System.out.println(new OutterTwo().age);// 内部类访问外部类
+			System.out.println(color);
+		}
+	}
+}
+
+public class InnerStatic {
+
+	public static void main(String[] args) {
+		// 创建对象
+		OutterTwo.Inner in = new OutterTwo.Inner();
+		in.test();
+		System.out.println(OutterTwo.Inner.color);
+
+	}
+
+}
+```
+
+**局部内部类：**
+
+定义在方法中的内部类
+
+1.不能使用一些修饰符public、private
+
+2.局部内部类只能在定义的方法中使用
+
+3.局部内部类中是不能定义静态变量的
+
+4.局部内部类中可以包含局部变量，使用的局部变量编译器默认使用final修饰    常量
+
+```java
+class Outter{
+	static String Name = "hh";
+	int age = 10;
+	//private final String name = "myxq";
+	void myxq () {
+		String name = "myxq";// 编译器会编译成上面那句注释
+		class Inner{
+			void test () {
+				System.out.println(name);
+			}
+		}
+		Inner in = new Inner();
+		in.test();
+	}
+}
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Outter ou = new Outter();
+		ou.myxq();
+		
+	}
+
+}
+```
+
+**匿名内部类：**
+
+匿名内部类没有构造器，一个文件对应一个类
+
+匿名内部类只有使用一次的时候，来去使用匿名内部类
+
+```java
+class Outter{// 外部类
+	String name = "OutterStr";
+	
+	class Inner{// 内部类
+		// 不能有静态成员
+		String name = "InnerSTr";
+		void test() {
+			String name = "TestStr";
+			System.out.println(name);
+			System.out.println(this.name);
+			System.out.println(Outter.this.name);
+		}
+	}
+}
+
+public class InnerClass {
+
+	public static void main(String[] args) {
+		Outter out = new Outter();
+		Outter.Inner in = out.new Inner();
+		in.test();
+
+	}
+
+}
+```
+
+## 9.枚举
+
+表示一个时间固定状态
+
+java 枚举：是一个特殊的类，多个常量对象的集合
+
+```java
+[修饰符] enum 枚举名称 {
+	常量1，常量2，常量3...
+}
+```
+
+枚举是一个特殊的类，不能直接创建对象
+
+```java
+package 面向对象.枚举;
+
+import org.w3c.dom.NamedNodeMap;
+
+// 定义星期类
+// 定义学生类
+//class WeekDay{
+//	public static final WeekDay MONDAY = new WeekDay();
+//	public static final WeekDay TUESDAY = new WeekDay();
+//	public static final WeekDay WEDNESDAY = new WeekDay();
+//	public static final WeekDay THURSDAY = new WeekDay();
+//	public static final WeekDay FRIDAY = new WeekDay();
+//	public static final WeekDay SATURDAY = new WeekDay();
+//	public static final WeekDay SUNDAY = new WeekDay();
+//}
+
+enum WeekDay{
+	MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY;
+}
+
+enum Sex{
+	NAN,NV;
+}
+
+class Student{
+	private WeekDay restDay;
+
+	public WeekDay getRestDay() {
+		return restDay;
+	}
+
+	public void setRestDay(WeekDay restDay) {
+		this.restDay = restDay;
+	}
+	
+}
+
+
+public class Test {
+
+	public static void main(String[] args) {
+		Student s = new Student();
+		s.setRestDay(WeekDay.SUNDAY);
+		if (s.getRestDay() == WeekDay.SATURDAY || s.getRestDay() == WeekDay.SUNDAY) {
+			System.out.println("放假了");
+		}else {
+			System.out.println("没有放假");
+		}
+		
+		System.out.println(Sex.NAN);// 默认调用.name()
+		System.out.println(Sex.NAN.name());
+		// ordinal()返回位置
+		System.out.println(Sex.NAN.ordinal());
+		System.out.println(Sex.NV.ordinal());
+		
+		// 配合switch
+		switch (Sex.NAN) {
+		case NAN:
+			System.out.println("是NAN");
+			break;
+		case NV:
+			System.out.println("是NV");
+			break;
+
+		default:
+			break;
+		}
+		
+		System.out.println("--------------");
+		// 遍历枚举
+		Sex[] allres = Sex.values();
+		for (Sex sex : allres) {
+			System.out.println(sex);
+		}
+		
+		System.out.println(allres[0]);
+		
+		// 字符串转枚举   报错为解决  https://blog.csdn.net/u010667011/article/details/83545813   https://blog.csdn.net/tplina/article/details/87984558
+//		Sex S = Sex.valueOf("BOYYYYY");
+//		System.out.println(S);
+		
+
+	}
+
+}
+
+```
+
+## 10.常用类
 

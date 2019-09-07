@@ -34,11 +34,11 @@ class U_Disk implements Usb {
 
 public class Testinterface {
 	public static void main(String[] args) {
-		Mp3 m1 = new Mp3();
+		Usb m1 = new Mp3();
 		m1.work();
-		Disk d1 = new Disk();
+		Usb d1 = new Disk();
 		d1.work();
-		U_Disk u1 = new U_Disk();
+		Usb u1 = new U_Disk();
 		u1.work();
 
 	}

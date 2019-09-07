@@ -1,6 +1,6 @@
 package com.gaoxing.lessontest;
 
-
+// 单例设计模式
 class TooUtil {
 
 	//	1.必须要在该类中创建一个对象
