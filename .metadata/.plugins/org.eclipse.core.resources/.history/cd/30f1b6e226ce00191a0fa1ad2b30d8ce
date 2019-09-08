@@ -1,5 +1,0 @@
-package com.gaoxing.lesson02;
-
-public class Student extends Person{
-	
-}

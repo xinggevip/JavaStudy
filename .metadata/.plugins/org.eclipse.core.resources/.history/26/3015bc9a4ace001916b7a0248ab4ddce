@@ -1,7 +1,0 @@
-package com.gaoxing.lesson05;
-
-public class SysoHeiBai extends SysoFather{
-	public void reSrcOfHeibai(String name) {
-		System.out.println("name"+"Ìí¼ÓºÚÉ«Ä«Ö­");
-	}
-}

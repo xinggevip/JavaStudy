@@ -1,5 +1,0 @@
-package com.gaoxing.lesson03;
-
-public class SysoHeiBai extends SysoFather{
-	
-}
