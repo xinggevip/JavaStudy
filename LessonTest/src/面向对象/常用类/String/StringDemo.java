@@ -3,6 +3,8 @@ package 面向对象.常用类.String;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+import 面向对象.内部类.局部内部类.Test;
+
 /**
  * fileName.split(";");  // 分割成数组
  * name.startsWith("hello");  // 判断是否以指定字符开头
@@ -15,7 +17,7 @@ import java.util.Arrays;
  */
 
 public class StringDemo {
-	void test() {
+	public static void test() {
 		// 获取以hello开头的文件名的后缀名
 		String fileName = "abc.java;hello.myxq;hello.text.java;hello.class";
 		// 分割成数组
@@ -37,6 +39,7 @@ public class StringDemo {
 	}
 
 	public static void main(String[] args) {
+		test();
 		// 去掉空格
 		// 去掉首位空格
 		// 去掉中间的空格
