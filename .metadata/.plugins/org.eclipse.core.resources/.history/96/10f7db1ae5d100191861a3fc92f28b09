@@ -1,0 +1,11 @@
+package 面向对象.常用类.String;
+
+public class StringDemo {
+
+	public static void main(String[] args) {
+		// 获取以hello开头的文件名的后缀名
+		
+
+	}
+
+}

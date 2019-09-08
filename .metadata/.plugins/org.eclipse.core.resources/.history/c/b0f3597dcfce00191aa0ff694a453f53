@@ -1,0 +1,21 @@
+package com.gaoxing.lesson06;
+
+// 定义接口
+// 实现接口
+// 创建对象
+
+interface Usb {
+	void work();
+}
+class Mp3 implements Usb {
+	String name;
+	public void work() {
+		System.out.println(name + "播放了");
+	}
+}
+
+public class Testinterface {
+	public static void main(String[] args) {
+
+	}
+}

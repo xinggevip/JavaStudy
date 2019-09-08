@@ -1,0 +1,43 @@
+package com.gaoxing.lessontest;
+
+class Circle {
+	double r;
+	Circle(double r) {
+		this.r = r;
+	}
+	double MianJi(){
+		return 3.14 * r *r;
+	}
+	double MianJi(double r) {
+		return 3.14 * r;
+	}
+	
+}
+
+class Jx {
+	double x;
+	double y;
+	Jx(double x,double y){
+		this.x = x;
+		this.y = y;
+	}
+	double MianJi() {
+		return x* y;
+	}
+	double MianJi(double x,double y) {
+		return x * y;
+	}
+}
+
+public class MianJi {
+
+	public static void main(String[] args) {
+		Circle c1 = new Circle(12.5);
+		Jx j1 = new Jx(12, 5);
+		c1.MianJi();
+		j1.MianJi();
+		
+
+	}
+
+}

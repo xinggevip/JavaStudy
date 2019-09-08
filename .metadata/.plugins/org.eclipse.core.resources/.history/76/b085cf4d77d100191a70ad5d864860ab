@@ -1,0 +1,26 @@
+package 面向对象.常用类.BigDecimal大精度类;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+public class TestBigDecimal {
+
+	public static void main(String[] args) {
+		// double folt 计算有误差
+		System.out.println("0.09 + 0.01 = " + 0.09 + 0.01); // 0.09 + 0.01 = 0.090.01
+		
+		// BigDecimal 大十进制，参数传字符串才可以得到想要的结果
+		BigDecimal num1 = new BigDecimal("0.09");
+		BigDecimal num2 = new BigDecimal("0.01");
+		System.out.println( num1.add(num2) ); // 0.10
+		
+		// BigInteger 大整形，可以计算超过Long的范围
+		BigInteger num3 = BigInteger.valueOf(Long.MAX_VALUE + 1000);
+		System.out.println(num3);
+		
+		
+		
+
+	}
+
+}

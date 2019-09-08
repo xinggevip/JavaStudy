@@ -1,0 +1,42 @@
+package 面向对象.枚举;
+
+// 定义星期类
+// 定义学生类
+class WeekDay{
+	public static final WeekDay MONDAY = new WeekDay();
+	public static final WeekDay TUESDAY = new WeekDay();
+	public static final WeekDay WEDNESDAY = new WeekDay();
+	public static final WeekDay THURSDAY = new WeekDay();
+	public static final WeekDay FRIDAY = new WeekDay();
+	public static final WeekDay SATURDAY = new WeekDay();
+	public static final WeekDay SUNDAY = new WeekDay();
+}
+
+class Student{
+	private WeekDay restDay;
+
+	public WeekDay getRestDay() {
+		return restDay;
+	}
+
+	public void setRestDay(WeekDay restDay) {
+		this.restDay = restDay;
+	}
+	
+}
+
+
+public class Test {
+
+	public static void main(String[] args) {
+		Student s = new Student();
+		s.setRestDay(WeekDay.FRIDAY);
+		if (s.getRestDay() == WeekDay.SATURDAY || s.getRestDay() == WeekDay.SUNDAY) {
+			System.out.println("放假了");
+		}else {
+			System.out.println("没有放假");
+		}
+
+	}
+
+}

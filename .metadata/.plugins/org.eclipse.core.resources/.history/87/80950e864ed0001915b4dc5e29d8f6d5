@@ -1,0 +1,14 @@
+package 面向对象.包装类;
+
+public class DataTypeToString {
+
+	public static void main(String[] args) {
+		// 包装类转字符串
+		Integer num = new Integer(10);
+		String str = num.toString();
+		System.out.println(str.getClass());
+		int i = 0;
+
+	}
+
+}

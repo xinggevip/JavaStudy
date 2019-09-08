@@ -1,0 +1,10 @@
+package 面向对象.常用类.main方法;
+
+public class MainClass {
+	// 点击运行时，JVM自动运行main方法
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

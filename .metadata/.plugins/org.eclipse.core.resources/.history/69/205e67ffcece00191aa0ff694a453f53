@@ -1,0 +1,15 @@
+package com.gaoxing.lesson06;
+
+// 定义接口
+// 实现接口
+// 创建对象
+
+interface Usb {
+
+}
+
+public class Testinterface {
+	public static void main(String[] args) {
+
+	}
+}

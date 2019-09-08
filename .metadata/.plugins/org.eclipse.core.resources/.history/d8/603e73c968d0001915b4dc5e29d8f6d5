@@ -1,0 +1,36 @@
+package 面向对象.包装类;
+
+public class DataTypeToString {
+
+	public static void main(String[] args) {
+		byte a1=2;
+		short a2=2;
+		int a3=1;
+		long a4=2L;
+		System.out.println(getType(a1));
+		System.out.println(getType(a2));
+		System.out.println(getType(a3));
+		System.out.println(getType(a4));
+		
+		float f=1.00f;
+		double d=1.00d;
+		System.out.println(getType(f));
+		System.out.println(getType(d));
+		
+		boolean b=true;
+		System.out.println(getType(b));
+		
+		char c='a';
+		System.out.println(getType(c));
+		
+		String s="abc";
+		System.out.println(getType(s));
+	}
+	
+	private static String getType(Object a) {
+		return a.getClass().toString();
+ 
+	
+	}
+
+}

@@ -1,0 +1,18 @@
+package 面向对象.内部类.局部内部类;
+
+import java.util.jar.Attributes.Name;
+
+class Outter{
+	static String Name = "hh";
+	int age = 10;
+}
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package 面向对象.内部类;
+
+public class InnerStatic {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

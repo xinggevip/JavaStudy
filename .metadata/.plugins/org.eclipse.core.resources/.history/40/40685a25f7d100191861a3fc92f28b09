@@ -1,0 +1,13 @@
+package 面向对象.常用类.String;
+
+public class StringBuilderDemo {
+	static void test() {
+		
+	}
+
+	public static void main(String[] args) {
+		test();
+
+	}
+
+}

@@ -1,0 +1,19 @@
+package 面向对象.常用类.BigDecimal大精度类;
+
+import java.math.BigDecimal;
+
+public class TestBigDecimal {
+
+	public static void main(String[] args) {
+		// double folt 计算有误差
+		System.out.println("0.09 + 0.01 = " + 0.09 + 0.01);// 0.09 + 0.01 = 0.090.01
+		
+		// 参数传字符串才可以得到想要的结果
+		BigDecimal num1 = new BigDecimal("0.09");
+		BigDecimal num2 = new BigDecimal("0.01");
+		System.out.println( num1.add(num2) );
+		
+
+	}
+
+}

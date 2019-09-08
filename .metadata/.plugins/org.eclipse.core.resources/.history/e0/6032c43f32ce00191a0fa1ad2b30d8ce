@@ -1,0 +1,5 @@
+package com.gaoxing.lesson03;
+
+public class SysoCai extends SysoFather{
+	
+}

@@ -1,0 +1,10 @@
+package com.gaoxing.lesson08;
+
+public class TestGiveSpeech {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

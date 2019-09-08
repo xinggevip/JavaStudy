@@ -1,0 +1,24 @@
+package com.gaoxing.lesson01;
+
+public class Lesson01 {
+	String name;
+	public Lesson01( String name ){
+		this.name = name;
+	};
+	public void show(){
+		System.out.println(this.name);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Lesson01 demo = new Lesson01("papy");
+		demo.show();
+		
+		//	实例化学生对象
+		Student s1 = new Student();
+		s1.setName("Tom");
+		s1.setAge(18);
+		s1.getAge();
+	}
+
+}

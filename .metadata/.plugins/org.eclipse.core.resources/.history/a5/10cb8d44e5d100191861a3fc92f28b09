@@ -1,0 +1,15 @@
+package 面向对象.常用类.String;
+
+public class StringDemo {
+
+	public static void main(String[] args) {
+		// 获取以hello开头的文件名的后缀名
+		String fileName = "abc.java;hello.myxq;hello.text.java;hello.class";
+		// 跟个成数组
+		String[] strArr = fileName.split(";");
+		System.out.println(strArr);
+		
+
+	}
+
+}

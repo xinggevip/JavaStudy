@@ -1,0 +1,25 @@
+package 面向对象.常用类.Random类;
+
+import java.util.Random;
+
+public class TestRandom {
+	static void test() {
+		Random res = new Random();
+		int num = res.nextInt();
+		System.out.println(num);
+		
+		System.out.println(res.nextDouble());
+		System.out.println(res.nextBoolean());
+		
+		System.out.println("------------------");
+		
+		
+		
+	}
+
+	public static void main(String[] args) {
+		test();
+
+	}
+
+}

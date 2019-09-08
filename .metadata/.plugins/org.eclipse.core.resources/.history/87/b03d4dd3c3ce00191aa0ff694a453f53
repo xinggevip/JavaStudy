@@ -1,0 +1,40 @@
+package com.gaoxing.lessontest;
+
+interface Ludi {
+	void wolk();
+}
+
+interface Niao {
+	void fly();
+}
+
+interface Liang extends Ludi, Niao {
+	
+}
+
+class Animal {
+	String name;
+	String color;
+}
+
+class Cat extends Animal implements Ludi,Niao{
+	public void wolk() {
+		System.out.println("×ßÃ¨²½");
+	}
+	public void fly() {
+		System.out.println("·É");
+	}
+}
+
+public class InterfaceClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Ludi c1 = new Cat();
+		c1.wolk();
+		Niao n1 = (Niao)c1;
+		n1.fly();
+	}
+
+}

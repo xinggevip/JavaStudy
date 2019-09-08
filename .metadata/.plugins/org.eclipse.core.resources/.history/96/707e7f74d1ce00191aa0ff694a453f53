@@ -1,0 +1,42 @@
+package com.gaoxing.lesson07;
+
+interface Motor {
+	void run();
+}
+
+interface Steamer {
+	void sailing();
+}
+
+interface Plane {
+	void fly();
+}
+
+class SuCar implements Motor,Steamer,Plane {
+	String name = "海陆空三栖超级交通工具";
+
+	public void fly() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void sailing() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+
+public class TestInterface {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

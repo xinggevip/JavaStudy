@@ -1,0 +1,21 @@
+package com.gaoxing.lesson01;
+
+public class Student {
+	String name;
+	int age;
+	void getName(){
+		System.out.println("My Name is" + name);
+	}
+	String setName(String name){
+		this.name = name;
+		return this.name;
+	}
+	int setAge(int age){
+		this.age = age;
+		return this.age;
+	}
+	void getAge(){
+		System.out.println("My age is " + age);
+	}
+
+}

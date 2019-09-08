@@ -1,0 +1,91 @@
+package com.gaoxing.lesson09;
+
+import java.awt.image.Raster;
+
+/**
+ * 本程序有两种变化维度，第一种是拍摄设备的变化维度，第二种是拍摄对象的变化维度，
+ * @author xingge
+ *
+ */
+
+// 外观接口
+// 物体实现接口类
+// 创建物体对象
+interface Target{
+	String getOutLook();
+}
+
+class Fengjing implements Target {
+
+	public String getOutLook() {
+		return "优美得风景";
+	}
+	
+}
+
+class Person implements Target {
+	public String getOutLook() {
+		return "漂亮得美女";
+	}
+}
+
+
+// 拍照接口
+// 拍照设备实现接口类
+// 创建设备对象
+interface Photographable{
+	void takePhoto(Target target);
+}
+
+class Iphone implements Photographable{
+
+	public void takePhoto(Target target) {
+		if (target instanceof Fengjing) {
+			System.out.println("用iphone对" + target.getOutLook() + "进行拍照");
+		}else if (target instanceof Person) {
+			System.out.println("用iphone对" + target.getOutLook() + "进行拍照");
+		}
+	}
+	
+}
+
+class Camera implements Photographable{
+	public void takePhoto(Target target) {
+		if (target instanceof Fengjing) {
+			System.out.println("用照相机拍对" + target.getOutLook() + "进行拍照");
+		}else if (target instanceof Person) {
+			System.out.println("用照相机拍对" + target.getOutLook() + "进行拍照");
+		}
+	}
+}
+
+
+
+
+// 创建摄影师类
+// 创建摄影师对象
+
+class PhotoPher{
+	String name;
+	public PhotoPher(String name) {
+		this.name = name;
+	}
+	
+	void paiZhao(Photographable shebei,Target thing) {
+		if (shebei instanceof Iphone) {
+			shebei.takePhoto(thing);
+		}else if(shebei instanceof Camera){
+			shebei.takePhoto(thing);
+		}
+	}
+	
+}
+
+public class TestCamaer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

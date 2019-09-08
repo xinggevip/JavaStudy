@@ -1,0 +1,79 @@
+package com.gaoxing.lesson02;
+
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+class Person {
+	String name;
+	String sex;
+	int age;
+	Person(String name,String sex,int age){
+		this.name = name;
+		this.sex = sex;
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	
+}
+
+public class ArrListDemo2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//创建集合 注意：这里是存储自定义对象，则类型里要填那个对象的类名
+		ArrayList<Person> alt = new ArrayList<Person>();
+		
+		//创建自定义对象
+		Person s1 = new Person("阿猫","女",20);
+		Person s2 = new Person("阿狗","男",22);
+		Person s3 = new Person("张三","男",19);
+		Person s4 = new Person("阿拉尔","女",20);
+		
+		//添加元素到集合
+		alt.add(s1);
+		alt.add(s2);
+		alt.add(s3);
+		alt.add(s4);
+		 
+		//遍历
+		//迭代器
+//		Iterator<Person> it = alt.iterator();
+//		while(it.hasNext()){
+//		Person p1 = it.next();
+//		System.out.println(p1.getName()+"\t"+p1.getSex()+"\t"+p1.getAge());
+//		}
+//		System.out.println("------------");
+		
+		//普通for
+//		for(int x = 0;x < alt.size(); x++){
+//		Person p2= alt.get(x);
+//		System.out.println(p2.getName()+"\t"+p2.getSex()+"\t"+p2.getAge());
+//		}
+//		System.out.println("------------");
+		
+		//增强for
+		for(Person p3 : alt){
+		System.out.println(p3.getName()+"\t"+p3.getSex()+"\t"+p3.getAge());
+		}
+	}
+
+}

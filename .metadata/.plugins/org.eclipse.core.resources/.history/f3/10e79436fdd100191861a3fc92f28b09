@@ -1,0 +1,30 @@
+package 面向对象.常用类.Random类;
+
+import java.util.Random;
+
+public class TestRandom {
+	static void test() {
+		Random res = new Random();
+		int num = res.nextInt();
+		System.out.println(num);
+		
+		System.out.println(res.nextDouble());
+		System.out.println(res.nextBoolean());
+		
+		System.out.println("------------------");
+		
+		// 相同的种子，生成的随机数是一样的
+		Random r = new Random(10);
+		System.out.println(r.nextInt());
+		
+		// 随机生成34 - 179之间的数
+		int num2 = new Random().nextInt(145) + 34;
+ 		
+	}
+
+	public static void main(String[] args) {
+		test();
+
+	}
+
+}

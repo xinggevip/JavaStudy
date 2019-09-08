@@ -1,0 +1,23 @@
+package 面向对象.包装类;
+
+public class DataTypeToString {
+
+	public static void main(String[] args) {
+		// 包装类转字符串
+		Integer num = new Integer(10);
+		String str = num.toString();
+		System.out.println(str.getClass().toString());
+		int i = 0;
+		String str2 = i + "";
+		
+		String str3 = "100";
+		int num2 = Integer.parseInt(str3);
+		System.out.println("num2 = " + num2);
+		double dou1 = Double.parseDouble(str3);
+		System.out.println(dou1);
+		Boolean b = new Boolean("a");
+		System.out.println(b);
+
+	}
+
+}

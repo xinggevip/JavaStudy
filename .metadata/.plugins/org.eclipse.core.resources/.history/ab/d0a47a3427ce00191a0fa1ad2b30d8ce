@@ -1,0 +1,11 @@
+package com.gaoxing.lesson02;
+
+public class Index {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Student st1 = new Studen();
+	}
+
+}

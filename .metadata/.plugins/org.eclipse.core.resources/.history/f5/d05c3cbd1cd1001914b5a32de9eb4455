@@ -1,0 +1,23 @@
+package 面向对象.内部类;
+
+class OutterTwo{
+	static String name = "OutterStr";
+	static class Inner{
+		static String name = "InnerStr";
+		void test() {
+			System.out.println(name);
+			System.out.println();
+		}
+	}
+}
+
+public class InnerStatic {
+
+	public static void main(String[] args) {
+		// 创建对象
+		OutterTwo.Inner in = new OutterTwo.Inner();
+		in.test();
+
+	}
+
+}

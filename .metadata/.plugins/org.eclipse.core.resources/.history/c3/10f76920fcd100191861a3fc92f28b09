@@ -1,0 +1,17 @@
+package 面向对象.常用类.Random类;
+
+import java.util.Random;
+
+public class TestRandom {
+	static void test() {
+		Random res = new Random();
+		
+		
+	}
+
+	public static void main(String[] args) {
+		test();
+
+	}
+
+}

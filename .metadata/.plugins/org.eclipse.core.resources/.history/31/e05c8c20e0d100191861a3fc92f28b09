@@ -1,0 +1,16 @@
+package 面向对象.常用类.String;
+
+public class ZhuanString {
+
+	public static void main(String[] args) {
+		// char[] 转 String
+		char[] cs = {'a','b','c','d'};
+		String str1 = new String(cs);
+		System.out.println(str1); // abcd
+		
+		// String 转 char[]
+		char[] cs2 = str1.toCharArray();
+
+	}
+
+}

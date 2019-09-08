@@ -1,0 +1,17 @@
+package 面向对象.内部类;
+
+class OutterTwo{
+	
+	static class Inner{
+		
+	}
+}
+
+public class InnerStatic {
+
+	public static void main(String[] args) {
+		OutterTwo.Inner in = new OutterTwo.Inner();
+
+	}
+
+}

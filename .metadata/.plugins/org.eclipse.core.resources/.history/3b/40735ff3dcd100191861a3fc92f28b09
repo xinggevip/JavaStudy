@@ -1,0 +1,19 @@
+package 面向对象.常用类.String;
+
+/**
+ * 常量 =》 方法区有一个常量池
+ * 1.String str = "ABCD";
+ *   使用String str = "ABCD";创建字符串
+ *   要么创建一个对象，要么不创建
+ * @author xingge
+ *
+ */
+
+public class TestStringTwo {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
