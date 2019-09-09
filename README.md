@@ -251,7 +251,7 @@ final 可以在局部代码块中使用
 
 ## 7.包装类
 
-**包装类：**
+### 7.1包装类
 
 对基本数据类型进行包装，把基本数据类型包装成一个对象=>装箱操作
 
@@ -268,7 +268,7 @@ final 可以在局部代码块中使用
 | char         | character |
 | boolean      | Boolean   |
 
-**装箱:**
+### 7.2装箱
 
 ```java
 // 装箱操作的两种方法
@@ -281,7 +281,7 @@ System.out.println(num2);// 10
 
 
 
-**拆箱：**
+### 7.3拆箱
 
 基本数据类型 变量名 = 包装类变量.基本数据类型value;
 
@@ -291,7 +291,7 @@ Integer num2 = Integer.valueOf(10);
 int num3 = num2.intValue();
 ```
 
-**自动装箱：**
+### 7.4自动装箱
 
 其他类型也是此写法
 
@@ -300,7 +300,7 @@ int num3 = num2.intValue();
 Integer i = 10;// 编译器编译为Integer i = Integer.valueOf(10);这是语法糖
 ```
 
-**自动拆箱：**
+### 7.5自动拆箱
 
 其他类型也是此写法
 
@@ -310,11 +310,11 @@ Integer i = 10;
 int num4 = i;
 ```
 
-**包装类转字符串：**
+### 7.6包装类转字符串
 
 无论是什么类型的包装类，直接调用toString();就可以转成字符串型了;
 
-**基本数据类型转字符串：**
+### 7.7基本数据类型转字符串
 
 变量加个空串
 
@@ -323,7 +323,7 @@ int i = 0;
 String str2 = i + "";
 ```
 
-**把字符串转成基本数据类型：**
+### 7.8把字符串转成基本数据类型
 
 基本数据类型标识 变量名 = 包装类.parse基本数据类型标识(str);
 
@@ -332,7 +332,7 @@ String str3 = "100";
 int num2 = Integer.parseInt(str3);
 ```
 
-**字符串转Boolean：**
+### 7.9字符串转Boolean
 
 传"true"为true，传其他值均为false
 
@@ -343,13 +343,13 @@ Boolean b1 = new Boolean("true");
 System.out.println(b1);// true
 ```
 
-**获取变量数据类型：**
+### 7.10获取变量数据类型：
 
 getClass();
 
 http://qiangssvip.com/index.php/archives/362/
 
-**基本数据类型和包装类型的区别：**
+### 7.11基本数据类型和包装类型的区别：
 
 **1.默认值**
 
@@ -374,7 +374,7 @@ equals比较的是值
 
 
 
-**包装类缓存设计：**
+### 7.12包装类缓存设计：
 
 ```java
 // 包装类valueOf()缓存设计
@@ -395,7 +395,7 @@ System.out.println(n5 == n6);// false
 
 **内部类：定义在类当中的一个类**
 
-**为什么要使用内部类？**
+### 为什么要使用内部类？
 
 1.增强封装，把内部类隐藏在外部类当中，不允许其他类访问
 
@@ -415,7 +415,7 @@ public  或者  默认值
 
 内部类可以使用很多修饰符
 
-**实例内部类：**
+### 8.1实例内部类：
 
 属于对象的内部类，不属于类的，不使用static修饰的内部类
 
@@ -457,7 +457,7 @@ public class InnerClass {
 
 ![1567777554782](https://raw.githubusercontent.com/xinggevip/JavaStudy/master/SRC/imgs/1567777554782.png)
 
-**静态内部类：**
+### 8.2静态内部类：
 
 在内部类前面加上static
 
@@ -498,7 +498,7 @@ public class InnerStatic {
 }
 ```
 
-**局部内部类：**
+### 8.3局部内部类：
 
 定义在方法中的内部类
 
@@ -539,38 +539,63 @@ public class Test {
 }
 ```
 
-**匿名内部类：**
+### 8.4匿名内部类：
 
 匿名内部类没有构造器，一个文件对应一个类
 
 匿名内部类只有使用一次的时候，来去使用匿名内部类
 
 ```java
-class Outter{// 外部类
-	String name = "OutterStr";
-	
-	class Inner{// 内部类
-		// 不能有静态成员
-		String name = "InnerSTr";
-		void test() {
-			String name = "TestStr";
-			System.out.println(name);
-			System.out.println(this.name);
-			System.out.println(Outter.this.name);
-		}
+package 面向对象.内部类.匿名内部类;
+
+interface IUsbable{
+	void swapData();
+}
+
+class MainBoard{
+	void use(IUsbable device) {
+		device.swapData();
 	}
 }
 
-public class InnerClass {
+class Mouse implements IUsbable{
+
+	public void swapData() {
+		System.out.println("移动鼠标");
+	}
+	
+}
+
+class Key implements IUsbable{
+
+
+	public void swapData() {
+		System.out.println("输入数据");
+	}
+	
+}
+
+public class TestUsb {
 
 	public static void main(String[] args) {
-		Outter out = new Outter();
-		Outter.Inner in = out.new Inner();
-		in.test();
+
+		MainBoard zhuban = new MainBoard();
+		IUsbable m = new Mouse();
+		IUsbable k = new Key();
+		zhuban.use(m);
+		zhuban.use(k);
+		zhuban.use(new IUsbable() {
+			// 匿名内部类
+			public void swapData() {
+				System.out.println("设备工作");
+			}
+		});
+		
 
 	}
 
 }
+
 ```
 
 ## 9.枚举
@@ -677,4 +702,647 @@ public class Test {
 ```
 
 ## 10.常用类
+
+### 10.1String
+
+#### 10.1.1常用方法
+
+```java
+package 面向对象.常用类.String;
+
+public class ZhuanString {
+
+	public static void main(String[] args) {
+		// char[] 转 String
+		char[] cs = {'a','b','c','d'};
+		String str1 = new String(cs);
+		System.out.println(str1); // abcd
+		
+		// String 转 char[]
+		char[] cs2 = str1.toCharArray();
+		System.out.println(cs2); // abcd
+		
+		// 字符串常用方法
+		// 根据下标找字符
+		char cs3 = str1.charAt(0);
+		System.out.println(cs3);
+		// 根据字符串找下标,首次出现的位置
+		int num1 = str1.indexOf("cd");
+		System.out.println(num1);
+		// 根据字符找下标,最后一次出现的位置
+		int num2 = str1.lastIndexOf("d");
+		System.out.println(num2);
+		// 转大写
+		System.out.println(str1.toUpperCase());
+		// 转小写
+		String str3 = "ABCDEF";
+		System.out.println(str3.toLowerCase());
+		// 不区分到小写比较
+		
+		String s1 = "ab";
+		String s2 = "AB";
+		System.out.println(s1.equalsIgnoreCase(s2));
+
+	}
+
+}
+
+```
+
+#### 101.2获取以hello开头的文件名的后缀名
+
+```java
+package 面向对象.常用类.String;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+import 面向对象.内部类.局部内部类.Test;
+
+/**
+ * fileName.split(";");  // 分割成数组
+ * name.startsWith("hello");  // 判断是否以指定字符开头
+ * name.lastIndexOf('.');  // 获取指定字符最后出现的位置
+ * name.substring(index); // 获取指定位置往后所有的字符，两个参数为获取指定位置之间的字符
+ * str1.trim();  // 去掉收尾空格
+ * str1.replace(" ", "") // 把指定字符替换成指定字符  实现去掉所有空格
+ * @author xingge
+ *
+ */
+
+public class StringDemo {
+	public static void test() {
+		// 获取以hello开头的文件名的后缀名
+		String fileName = "abc.java;hello.myxq;hello.text.java;hello.class";
+		// 分割成数组
+		String[] strArr = fileName.split(";");
+		System.out.println(Arrays.toString(strArr));
+		for (String name : strArr) {
+//			System.out.println(name);
+			// 判断是不是以hello开头
+			if (name.startsWith("hello")) {
+				System.out.println(name);
+				// 获取最后一个字符','的位置
+				int index = name.lastIndexOf('.');
+				// 获取最后一个点往后的所有字符
+				String newName = name.substring(index);
+				System.out.println(newName);
+			}
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		test();
+		// 去掉空格
+		// 去掉首位空格
+		// 去掉中间的空格
+		String str1 = " Hello word ";
+		System.out.println(str1.trim());
+//		System.out.println(str1.trim().replace(" ", ""));
+		System.out.println(str1.replace(" ", ""));
+		
+
+	}
+
+}
+
+```
+
+#### 10.1.3字符串拼接性能
+
+```java
+package 面向对象.常用类.String;
+
+/**
+ * normalString(); // 167
+ * stringBuffer(); // 1       方法前多了一个synchronized  加锁  更加安全
+ * stringBuilder(); // 0      没有synchronized 效率更高
+ * 
+ * 字符串拼接性能
+ * 
+ * @author xingge
+ *
+ */
+
+
+
+public class StringBuilderBufferDemo {
+	
+	static void normalString() {
+		long oldTime = System.currentTimeMillis();
+		
+		String str = "";
+		for(int i = 0;i < 10000;i++){
+			str += i;
+		}
+		
+		long newTime = System.currentTimeMillis();
+		long resTime = newTime - oldTime;
+		System.out.println(resTime);
+		
+	}
+	
+	static void stringBuilder() {
+		long oldTime = System.currentTimeMillis();
+		
+		StringBuilder str = new StringBuilder();
+		for (int i = 0; i < 10000; i++) {
+			str.append(i);
+		}
+		
+		
+		long newTime = System.currentTimeMillis();
+		long resTime = newTime - oldTime;
+		System.out.println(resTime);
+	}
+	
+	static void stringBuffer() {
+		long oldTime = System.currentTimeMillis();
+		
+		StringBuffer str = new StringBuffer();
+		for (int i = 0; i < 10000; i++) {
+			str.append(i);
+		}
+		
+		
+		long newTime = System.currentTimeMillis();
+		long resTime = newTime - oldTime;
+		System.out.println(resTime);
+	}
+
+	public static void main(String[] args) {
+		
+		normalString(); // 167
+		stringBuffer(); // 1
+		stringBuilder(); // 0
+		
+	}
+
+}
+
+```
+
+#### 10.1.4StringBuilder
+
+```java
+package 面向对象.常用类.String;
+
+public class StringBuilderDemo {
+	static void test() {
+		
+		// 这两句话都是一样的，16为默认字符长度，添加字符自动给扩容
+		StringBuilder str1 = new StringBuilder();
+		StringBuilder str2 = new StringBuilder(16);
+		
+		// 普通字符串转StringBuilder
+		StringBuilder str3 = new StringBuilder("Hello");
+		
+		// StringBuilder 转普通字符串
+		String str4 = str3.toString();
+		
+		// 添加字符串,可以添加任意类型
+		str3.append(" world");
+		System.out.println(str3); // Hello world
+		
+		// 删除指定位置的字符串
+		str3.deleteCharAt(0);
+		System.out.println(str3); // ello world
+		
+		// 删除指定范围的字符串
+		str3.delete(0, 2);
+		System.out.println(str3); // lo world
+		
+		// 字符串反转
+		str3.reverse();
+		System.out.println(str3); // dlrow ol
+		
+		
+	}
+
+	public static void main(String[] args) {
+		test();
+
+	}
+
+}
+
+```
+
+### 10.2System
+
+#### 10.2.1拷贝数组
+
+```java
+package 面向对象.常用类.System类数组拷贝;
+
+import java.util.Arrays;
+/**
+ * src - 原数组
+ * srcPos - 原数组的开始下标
+ * dest - 目标数组
+ * destPos - 目标数据中的开始下标
+ * length - 要复制的数组元素数量
+ * @author xingge
+ *
+ */
+
+public class ArrayCopy {
+
+	public static void main(String[] args) {
+		int[] src = {1, 2, 3, 4, 5, 6 };
+		int[] dest = new int[10];
+		System.arraycopy(src, 2, dest, 2, 4);
+		System.out.println(Arrays.toString(src)); // [1, 2, 3, 4, 5, 6]
+		System.out.println(Arrays.toString(dest)); // [0, 0, 3, 4, 5, 6, 0, 0, 0, 0]
+	}
+
+}
+
+```
+
+#### 10.2.2代码耗时、退出、回收
+
+```java
+package 面向对象.常用类.System类计算代码耗时;
+
+public class SystemMethods {
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+		System.out.println("我被java虚拟机回收了");
+	}
+
+	public static void main(String[] args) {
+		long time1 = System.currentTimeMillis();
+		for (int i = 0; i < 10000; i++) {
+			System.out.println(i);
+		}
+		long time2 = System.currentTimeMillis();
+		long time3 = time2 - time1;
+		System.out.println("代码总耗时：" + time3);
+		
+		// 运行垃圾回收，java虚拟机自己有的垃圾回收机制，这句话可以立即执行垃圾回收一般不会主动调用该方法
+		SystemMethods s = new SystemMethods();
+		new SystemMethods();// 地址没有被引用就会变成垃圾
+		System.gc();
+		
+		// 终止当前正在运行的java虚拟机
+		System.exit(0);// 0 为正常退出，非0为异常退出
+		System.out.println("---------");
+
+	}
+
+}
+
+
+//代码总耗时：48
+//我被java虚拟机回收了
+```
+
+### 10.3大精度
+
+#### 10.3.1BigDecimal&&BigINteger
+
+```java
+package 面向对象.常用类.BigDecimal大精度类;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+public class TestBigDecimal {
+
+	public static void main(String[] args) {
+		// double folt 计算有误差
+		System.out.println("0.09 + 0.01 = " + 0.09 + 0.01); // 0.09 + 0.01 = 0.090.01
+		
+		// BigDecimal 大十进制，参数传字符串才可以得到想要的结果  计算无误差
+		BigDecimal num1 = new BigDecimal("0.09");
+		BigDecimal num2 = new BigDecimal("0.01");
+		System.out.println( num1.add(num2) ); // 0.10
+		
+		// BigInteger 大整形，可以计算超过Long的范围  可计算超大数据
+		BigInteger num3 = BigInteger.valueOf(Long.MAX_VALUE);
+		BigInteger num4  = BigInteger.valueOf(10);
+		
+		System.out.println(num3); // 9223372036854775807
+		System.out.println(num3.add(num4)); // 9223372036854775817
+		
+	}
+
+}
+```
+
+### 10.4日期
+
+#### 10.4.4Date
+
+```java
+package 面向对象.常用类.Date;
+
+import java.util.Date;
+
+public class TestDate {
+
+	public static void main(String[] args) {
+		
+		// 1.直接new一个Date
+		Date d1 = new Date();
+		System.out.println(d1);// Mon Sep 09 13:00:29 GMT+08:00 2019 获取当前的时间
+		
+		// 2.把毫秒转换成日期
+		Long l1 = System.currentTimeMillis();
+		Date d2 = new Date(l1);
+		System.out.println(d2);// Mon Sep 09 13:00:29 GMT+08:00 2019
+		
+		// 3.中国日期风格
+		String s1 = d2.toLocaleString(); // 2019-9-9 13:00:29
+		System.out.println(s1);
+		
+		// 4.把日期转换成毫秒
+		System.out.println(d2.getTime()); // 1568005229764
+
+	}
+
+}
+
+```
+
+#### 10.4.2日期格式化
+
+```java
+package 面向对象.常用类.Date;
+
+import java.text.DateFormat;
+import java.text.DateFormatSymbols;
+import java.text.ParseException;
+import java.text.ParseException.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DateDemo {
+
+	static void test() throws ParseException {
+		// 创建一个日期
+		Date time = new Date();
+		System.out.println(time); // Sun Sep 08 17:48:18 GMT+08:00 2019
+
+		// 格式化日期
+		DateFormat df1 = DateFormat.getInstance();
+		String time1 = df1.format(time);
+		System.out.println(time1); // 19-9-8 下午5:48
+
+		// 格式化日期  等同于上面的写法
+		DateFormat df2 = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+		String time2 = df2.format(time);
+		System.out.println(time2); // 19-9-8 下午5:48
+
+		// 格式化日期
+		DateFormat df3 = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT);
+		String time3 = df3.format(time);
+		System.out.println(time3); // 2019年9月8日 下午05时48分18秒
+		
+		// 只获取时间
+		DateFormat df4 = DateFormat.getTimeInstance();
+		String time4 = df4.format(time);
+		System.out.println(time4); // 13:05:27
+		
+		// 把字符串转成日期
+		DateFormat df5 = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT);
+		Date date2 = df5.parse(time1);
+		System.out.println(date2); // Mon Sep 09 13:05:00 GMT+08:00 2019
+		
+		// 自定义格式
+		SimpleDateFormat df6 = new SimpleDateFormat("yyyy年MM月dd");
+		String time6 = df6.format(time);
+		System.out.println(time6); // 2019年09月09
+		
+		// 自定义格式
+		SimpleDateFormat df7 = new SimpleDateFormat();
+		String pattern = "YYYY";
+		df7.applyPattern(pattern);
+		String time7 = df7.format(time);
+		System.out.println(time7); // 2019
+		
+	}
+
+	public static void main(String[] args) throws ParseException {
+		test();
+		
+	}
+
+}
+
+```
+
+#### 10.4.3日期工具类设计
+
+```java
+package 面向对象.常用类.Date;
+
+import java.security.PublicKey;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * 封装日期类
+ * @author xingge
+ *
+ */
+
+class DateUtil{
+	private DateUtil() {};
+	private static final String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+	
+	// 日期转字符串  两个参数
+	public static String dateToString(Date dade,String pattern) {
+		
+		if(pattern == null || pattern.equals("")) {
+			pattern = DEFAULT_PATTERN;
+		}
+		
+		SimpleDateFormat df = new SimpleDateFormat();
+		df.applyPattern(pattern);
+		String res = df.format(dade);
+		
+		return res;
+	}
+	
+	// 日期转字符串  一个参数
+	public static String dateToString(Date date) {
+		return dateToString(date, "");
+	}
+	
+	// 字符串转日期  两个参数
+	public static Date StringToDate(String str,String pattern) throws ParseException {
+		
+		if(pattern == null || pattern.equals("")) {
+			pattern = DEFAULT_PATTERN;
+		}
+		
+		SimpleDateFormat df = new SimpleDateFormat();
+		df.applyPattern(pattern);
+		Date date = df.parse(str);
+			
+		return date;
+	}
+	
+	// 字符串转日期  一个参数
+	public static Date StringToDate(String str) throws ParseException {
+		
+		SimpleDateFormat df = new SimpleDateFormat();
+		df.applyPattern(DEFAULT_PATTERN);
+		Date date = df.parse(str);
+			
+		return date;
+	}
+	
+	
+}
+
+public class DateDemo2 {
+
+	public static void main(String[] args) throws ParseException {
+		// TODO Auto-generated method stub
+		String reString = DateUtil.dateToString(new Date(),"yyyy-MM-dd HH:mm:ss");
+		System.out.println(reString); // 2019-09-09 13:07:53
+		
+		String reString2 = DateUtil.dateToString(new Date(), "");
+		System.out.println(reString2); // 2019-09-09 13:07:53
+		
+		String reString3 = DateUtil.dateToString(new Date());
+		System.out.println(reString3); // 2019-09-09 13:07:53
+		
+		Date date = DateUtil.StringToDate("2019-09-08 22:00:17", "yyyy-MM-dd HH:mm:ss");
+		System.out.println(date); // Sun Sep 08 22:00:17 GMT+08:00 2019
+	}
+
+}
+
+```
+
+### 10.5Math类
+
+```java
+package 面向对象.常用类.Math类;
+
+/**
+ * 有关数学的操作在手册搜Math
+ * @author xingge
+ *
+ */
+
+public class TestMath {
+
+	public static void main(String[] args) {
+		// 最大值
+		int res = Math.max(10, 20);
+		System.out.println(res); // 20
+		
+		// 随机数 Math.random()  范围是[0,1)
+		// 0 - 100
+		int sj = (int)(Math.random()*100 + 1);
+		System.out.println(sj);
+		
+		// 开根
+		double kg = Math.sqrt(81);
+		System.out.println(kg); // 9
+
+	}
+
+}
+
+```
+
+### 10.6Random&&UUID
+
+#### 10.6.1生成随机数和UUID
+
+```java
+package 面向对象.常用类.Random类;
+
+import java.rmi.server.UID;
+import java.util.Random;
+import java.util.UUID;
+
+public class TestRandom {
+	static void test() {
+		Random res = new Random();
+		int num = res.nextInt();
+		System.out.println(num); // -788547064
+		
+		System.out.println(res.nextDouble()); // 0.9793465472334298
+		System.out.println(res.nextBoolean()); // false
+		
+		System.out.println("------------------");
+		
+		// 相同的种子，生成的随机数是一样的
+		Random r = new Random(10);
+		System.out.println(r.nextInt()); // -1157793070
+		
+		// 随机生成34 - 179之间的数
+		//                      生成0-145之间的数,不包括145
+		int num2 = new Random().nextInt(145) + 34;
+		System.out.println(num2); // 167
+		
+		System.out.println("------------------");
+		// 生成UUID
+		// UUID：通用唯一标识符
+		// 当前的时间，跟当前电脑的网卡，生成一段字符
+		String uuid = UUID.randomUUID().toString();
+		System.out.println(uuid); // 444cde57-1a04-4be6-afb7-700907b435d4
+		
+		
+ 		
+	}
+
+	public static void main(String[] args) {
+		test();
+
+	}
+
+}
+
+```
+
+#### 10.6.2生成五位数验证码
+
+```java
+package 面向对象.常用类.Random类;
+
+import java.util.Random;
+
+public class RandomCode {
+	static  void CreatCode() {
+		// 生成5位数验证码
+		
+		// 创建验证码字符串
+		String sum = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		sum = sum + sum.toLowerCase();
+		sum = sum + "0123456789";
+		
+		// 生成验证码
+		StringBuilder code = new StringBuilder(5);
+		for(int i = 0;i <= 5; i++) {
+			// 生成0-sum长度中其中一个数
+			int index = new Random().nextInt(sum.length());
+			// 取一个数
+			char c = sum.charAt(index);
+			// 把数添加进字符串
+			code.append(c);
+		}
+		System.out.println(code); // kxBJEt
+		
+	}
+
+	public static void main(String[] args) {
+		CreatCode();
+
+	}
+
+}
+
+```
 
