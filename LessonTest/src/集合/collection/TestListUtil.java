@@ -67,6 +67,7 @@ public class TestListUtil {
 		list.add("e");
 		list.add("f");
 		
+		System.out.println("去重后的数组：");
 		ArrayList newList = ListUtil.getSingleEle(list);
 		System.out.println(newList); // [a, b, e, f]
 		
@@ -84,12 +85,14 @@ public class TestListUtil {
 	
 		ArrayList newStuList = ListUtil.getSingleEle(stuList);
 		ListIterator it = newStuList.listIterator();
+		System.out.println("去重后的学生对象数组：");
 		while (it.hasNext()) {
 			Student object = (Student) it.next();
 			System.out.println(object); // Student [name=张三, age=18] Student [name=李四, age=19] Student [name=王五, age=21]
 		}
 		
-
+		// sql 查询、定义、控制、操作
+		// 金钱使用decimal类别更加精确
 		
 		
 
