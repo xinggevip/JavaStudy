@@ -1496,3 +1496,40 @@ System.out.println(new Student().test3(12).getClass());  // 输出Integer 返回
 
 通配符只能用于接受，不能用于其他操作
 
+```java
+// 通配符的使用
+static ArrayList<?> test1(ArrayList<?> list) {
+return list;
+}
+
+
+public static void main(String[] args) {
+ArrayList<String> list = new ArrayList<String>();
+test1(list); // ArrayList<String>
+}
+```
+
+```java
+// 指定上限
+static void test1(List<? extends Number> list) {
+
+}
+
+// 指定下限
+static void test2(List<? super Number> list) {
+
+}
+
+public static void main(String[] args) {
+
+// 规定上限后只能传Number及Numbern的子类
+List<Integer> list = new ArrayList<>();
+test1(list);
+
+//  规定下限后只能传Number及Numbern的父类
+List<Object> list2 = new ArrayList<>();
+test2(list2);
+
+}
+```
+
