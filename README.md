@@ -1402,6 +1402,40 @@ LinkedHashSet:有序不重复
 
 TreeSet:自动排序，不重复，存放得类型必须是同一种类型，自定义的对象不能直接添加到TreeSet中
 
+### 11.3Map
+
+映射关系
+
+A集合当中的元素不能重复，称为Key 键
+
+B集合当中的元素可以重复，称为Value 值
+
+Map当作一个字典(dict)
+
+HashMap当中的元素是无序的
+
+put()方法返回值:key不重复返回null，如果key重复则覆盖value，返回旧的value
+
+clear()方法为清空
+
+Map没有哦迭代器
+
+**HashMap当中的元素是无序的**
+
+**LinkedHashMap 是有序的**
+
+**TreeMap自动排序**
+
+
+
+**HashMap与HashTable的区别：**
+
+**HashMap效率更快，不安全，1.2版本才有**
+
+**HashTable效率慢，安全，  1.0版本之前就有了**
+
+**HashMap可以存放Null值，HashTable不可以**
+
 ## 12.DAO设计模式
 
 **DAO（Data Access Object)数据访问对象**
