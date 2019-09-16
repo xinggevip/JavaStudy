@@ -1380,6 +1380,28 @@ java集合提供的集合类：长度可以改变，能存放任意对象，长�
 
 ​				ctrl+shift+o  导包
 
+![]([https://raw.githubusercontent.com/xinggevip/JavaStudy/master/SRC/imgs/集合.png))
+
+### 11.1List
+
+有序可重复
+
+ArrayList:查找快，增删慢
+
+LinkedArrayList:查找慢，增删块
+
+Vector:和ArrayList功能一致，但比AyyayList更安全，加了锁
+
+### 11.2Set
+
+无序不可重复
+
+HashSet:无序不重复
+
+LinkedHashSet:有序不重复
+
+TreeSet:自动排序，不重复，存放得类型必须是同一种类型，自定义的对象不能直接添加到TreeSet中
+
 ## 12.DAO设计模式
 
 **DAO（Data Access Object)数据访问对象**
@@ -1533,3 +1555,14 @@ test2(list2);
 }
 ```
 
+```java
+// 泛型擦除
+List<String> list1 = new ArrayList<String>();
+list1.add("Tom");
+
+List list2 = list1;	// 会自动把泛型擦除
+list2.add(10);
+System.out.println(list2); // [Tom, 10]
+```
+
+25
