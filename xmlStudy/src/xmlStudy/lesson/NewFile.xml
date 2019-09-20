@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root> 
+  <student number="s1"> 
+    <name>高星</name>  
+    <age>300</age>  
+    <sex>男</sex>  
+    <address>上海</address> 
+  </student>  
+  <student number="s2"> 
+    <name>tom</name>  
+    <age>19</age>  
+    <sex>女</sex> 
+  </student>  
+  <student number="s3">
+    <name>孔子</name>
+    <age>88</age>
+    <sex>男</sex>
+  </student>
+</root>
