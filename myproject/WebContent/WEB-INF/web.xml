@@ -17,6 +17,10 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>myxq</servlet-name>
+		<!--完全匹配 <url-pattern>/firstServlet</url-pattern> -->
+		<!--目标匹配 <url-pattern>/aaa/bbb/*</url-pattern> -->
+		<!-- 扩展名匹配 <url-pattern>*.myxq</url-pattern> -->
+		<!-- 目标匹配和扩展名匹配不能同时使用 -->
 		<url-pattern>/firstServlet</url-pattern>
 	</servlet-mapping>
 
