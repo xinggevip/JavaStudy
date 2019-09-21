@@ -1599,4 +1599,91 @@ list2.add(10);
 System.out.println(list2); // [Tom, 10]
 ```
 
-25
+## 14反射
+
+JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；
+
+对于任意一个对象，都能够调用它的任意一个方法和属性；
+
+这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。
+
+想要使用反射，就必须得要获取字节码文件
+
+```java
+package com.xing.reflect;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+
+public class TestRef {
+
+	public static void main(String[] args) throws Exception {
+		// 获取字节码
+		
+		Class clazz1 = Class.forName("com.xing.reflect.Person");
+		
+		
+		Class clazz2 = Person.class;
+		
+		Person p = new Person();
+		Class clazz3 = p.getClass();
+		
+		System.out.println(clazz1 == clazz2); // true
+		System.out.println(clazz2 == clazz3); // true
+		
+		System.out.println("----------------");
+		
+		// 通过字节码创建对象
+		Person p2 = (Person)clazz1.newInstance();
+		p2.setName("tom");
+		System.out.println(p2.getName()); // tom
+		
+		// 通过有参构造器创建对象
+		Constructor c = clazz1.getConstructor(String.class,Integer.class);
+		Person p3 = (Person)c.newInstance("高公子",18);
+		System.out.println(p3.getName()); // 高公子
+		
+		// 获取&&设置公共字段,public声明的字段
+		Field f = clazz1.getField("name");
+		f.set(p3, "李白");
+		System.out.println(p3.getName()); // 李白
+		
+		// 获取&&设置私有字段
+		Field f2 = clazz1.getDeclaredField("sex");
+		// 去除私有化
+		f2.setAccessible(true);
+		f2.set(p3, "男");
+		System.out.println(p3.getSex()); // 男
+		
+		System.out.println("-----------------");
+		
+		// 获取&&执行公共方法
+		Method m1 = clazz1.getMethod("getName");
+		System.out.println( m1.invoke(p2) ); // tom
+		
+		// 获取&&执行私有方法
+		Method m2 = clazz1.getDeclaredMethod("eat", String.class);
+		// 去除私有化
+		m2.setAccessible(true);
+		m2.invoke(p2,"贵族板面"); // tom吃贵族板面
+		
+		System.out.println("---------------------");
+		
+		// 通过反射绕过集合泛型检测
+		ArrayList<Integer> list = new ArrayList<>();
+		list.add(10);
+		// 获取ArrayList的字节码
+		Class<?> clazz4 = Class.forName("java.util.ArrayList");
+		Method m3 = clazz4.getMethod("add", Object.class);
+		m3.invoke(list, "gaoxing");
+		System.out.println(list); // [10, gaoxing]
+	
+	}
+
+}
+
+```
+
+动态网页的原理就是 读取xml文件中的配置信息，获取字节码，创建对象，执行对象方法，因为该类实现了servlet接口，所以服务器会自动执行里面的方法
