@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JdbcUtil {
-	static String url = "jdbc:mysql:///daostudy?useSSL=false";
-	static String user = "root";
-	static String password = "root";
+	public static String url = "jdbc:mysql:///daostudy?useSSL=false";
+	public static String user = "root";
+	public static String password = "root";
 
 	public static Connection getConn() {
 		try {
@@ -27,17 +27,35 @@ public class JdbcUtil {
 
 	}
 
-	public static void clossAll(Connection conn, Statement stt, ResultSet res) {
+	public static void clossAll( ResultSet res, Statement stt,Connection conn) {
 
 		try {
-			if (conn != null) {
-				conn.close();
+			if (res != null) {
+				res.close();
 			}
 			if (stt != null) {
 				stt.close();
 			}
-			if (res != null) {
-				res.close();
+			if (conn != null) {
+				conn.close();
+			}
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	public static void clossAll(Statement stt,Connection conn) {
+
+		try {
+			if (stt != null) {
+				stt.close();
+			}
+			if (conn != null) {
+				conn.close();
 			}
 			
 		} catch (SQLException e) {
