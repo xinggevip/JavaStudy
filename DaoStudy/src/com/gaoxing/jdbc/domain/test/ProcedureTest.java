@@ -27,6 +27,7 @@ public class ProcedureTest {
 				System.out.println(res.getString("name"));
 				System.out.println(res.getInt("age"));
 			}
+			JdbcUtil.clossAll(res, cs, conn);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -50,6 +51,7 @@ public class ProcedureTest {
 			
 			String res = cs.getString(2);
 			System.out.println(res);
+			JdbcUtil.clossAll(null, cs, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
