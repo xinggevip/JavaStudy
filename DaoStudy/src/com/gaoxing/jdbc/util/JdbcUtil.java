@@ -7,7 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JdbcUtil {
-	public static String url = "jdbc:mysql:///daotest?useSSL=false";
+//	public static String url = "jdbc:mysql:///daotest?useSSL=false";
+	public static String url = "jdbc:mysql:///daotest?rewriteBatchedStatements=true";
 	public static String user = "root";
 	public static String password = "root";
 
