@@ -14,7 +14,7 @@ public class UserTest {
 	public void test1() {
 		User u1 = new User();
 		u1.setName("ะกวเม๚");
-		u1.setMoney(10000);
+		u1.setMoney(10);
 		IUserDao userDaoImpl = new UserDaoImpl();
 		userDaoImpl.save(u1);
 	}

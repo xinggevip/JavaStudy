@@ -39,6 +39,12 @@ public interface IStudentDao {
 	 */
 	List<Student> getAll();
 	
+	/**
+	 * 获取学生总数
+	 * @return
+	 */
+	Integer getCount();
+	
 	
 	
 	

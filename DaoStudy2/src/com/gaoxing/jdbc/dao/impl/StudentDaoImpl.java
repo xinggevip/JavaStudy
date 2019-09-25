@@ -46,7 +46,7 @@ public class StudentDaoImpl implements IStudentDao{
 	public Student get(int id) {
 		
 		String sql = "select * from student where id = ?";
-		IResultSetHandler rh = new StuResultSetHandImp();
+		IResultSetHandler<List<Student>> rh = new StuResultSetHandImp();
 		List<Student> list = CRUDtemplate.executeQuery(sql, rh, id);
 		return list.size() == 1 ? list.get(0) : null;
 	}
@@ -54,8 +54,15 @@ public class StudentDaoImpl implements IStudentDao{
 	@Override
 	public List<Student> getAll() {
 		String sql = "select * from student";
-		IResultSetHandler rh = new StuResultSetHandImp();
+		IResultSetHandler<List<Student>> rh = new StuResultSetHandImp();
 		return CRUDtemplate.executeQuery(sql, rh);
+	}
+
+
+	@Override
+	public Integer getCount() {
+		String sql = "select count(*) as count from student";
+		return CRUDtemplate.executeQuery(sql, new StuCountResultSetHandImp());
 	}
 
 
@@ -63,10 +70,10 @@ public class StudentDaoImpl implements IStudentDao{
 
 }
 
-class StuResultSetHandImp implements IResultSetHandler{
+class StuResultSetHandImp implements IResultSetHandler<List<Student>>{
 	List<Student> list = new ArrayList<>();
 	@Override
-	public List handle(ResultSet res) throws Exception {
+	public List<Student> handle(ResultSet res) throws Exception {
 		while (res.next()) {
 			Student stu = new Student();
 			stu.setId(res.getInt("id"));
@@ -79,4 +86,17 @@ class StuResultSetHandImp implements IResultSetHandler{
 	
 }
 
+class StuCountResultSetHandImp implements IResultSetHandler<Integer>{
+
+	@Override
+	public Integer handle(ResultSet res) throws Exception {
+		if (res.next()) {
+			return res.getInt("count");
+		}
+		return 0;
+		
+		
+	}
+	
+}
 

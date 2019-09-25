@@ -58,5 +58,11 @@ public class StudentDaoTest {
 		List<Student> all = studao1.getAll();
 		System.out.println(all);
 	}
+	
+	@Test
+	public void getCount() {
+		IStudentDao studao1 = new StudentDaoImpl();
+		System.out.println(studao1.getCount());
+	}
 
 }

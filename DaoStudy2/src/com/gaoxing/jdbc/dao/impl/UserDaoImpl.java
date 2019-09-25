@@ -38,11 +38,11 @@ public class UserDaoImpl implements IUserDao {
 
 }
 
-class UserResultSetHandImp implements IResultSetHandler{
-
+class UserResultSetHandImp implements IResultSetHandler<List<User>>{
+	List<User> list = new ArrayList<>();
 	@Override
-	public List handle(ResultSet res) throws Exception {
-		List<User> list = new ArrayList<>();
+	public List<User> handle(ResultSet res) throws Exception {
+		
 		while (res.next()) {
 			User u = new User();
 			u.setName(res.getString("name"));

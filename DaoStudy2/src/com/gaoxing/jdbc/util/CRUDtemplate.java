@@ -32,12 +32,11 @@ public class CRUDtemplate {
 		return 0;
 	}
 
-	public static List executeQuery(String sql, IResultSetHandler rh, Object... params) {
+	public static <T>T executeQuery(String sql, IResultSetHandler<T> rh, Object... params) {
 
 		Connection conn = JdbcUtil.getConn();
 		PreparedStatement stt = null;
 		ResultSet res = null;
-		List list = new ArrayList();
 		try {
 			stt = conn.prepareStatement(sql);
 			// ±éÀú²ÎÊý
@@ -45,8 +44,8 @@ public class CRUDtemplate {
 				stt.setObject(i + 1, params[i]);
 			}
 			res = stt.executeQuery();
-			list = rh.handle(res);
-			return list;
+			
+			return rh.handle(res);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -55,7 +54,7 @@ public class CRUDtemplate {
 			JdbcUtil.clossAll(res, stt, conn);
 		}
 
-		return list;
+		return null;
 	}
 
 }
