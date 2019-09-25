@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.gaoxing.jdbc.domain.Student;
+import com.gaoxing.jdbc.handler.IResultSetHandler;
 
 public class CRUDtemplate {
 	public static int executeUpdate(String sql, Object... params) {
@@ -31,12 +32,12 @@ public class CRUDtemplate {
 		return 0;
 	}
 
-	public static List<Student> executeQuery(String sql, Object... params) {
+	public static List executeQuery(String sql, IResultSetHandler rh, Object... params) {
 
 		Connection conn = JdbcUtil.getConn();
 		PreparedStatement stt = null;
 		ResultSet res = null;
-		List<Student> list = new ArrayList<Student>();
+		List list = new ArrayList();
 		try {
 			stt = conn.prepareStatement(sql);
 			// ±éÀú²ÎÊý
@@ -44,16 +45,10 @@ public class CRUDtemplate {
 				stt.setObject(i + 1, params[i]);
 			}
 			res = stt.executeQuery();
-			while (res.next()) {
-				Student stu = new Student();
-				stu.setId(res.getInt("id"));
-				stu.setName(res.getString("name"));
-				stu.setAge(res.getInt("age"));
-				list.add(stu);
-			}
+			list = rh.handle(res);
 			return list;
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {

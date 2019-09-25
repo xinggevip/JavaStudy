@@ -9,8 +9,10 @@ import java.util.List;
 
 import com.gaoxing.jdbc.dao.IStudentDao;
 import com.gaoxing.jdbc.domain.Student;
+import com.gaoxing.jdbc.handler.IResultSetHandler;
 import com.gaoxing.jdbc.util.CRUDtemplate;
 import com.gaoxing.jdbc.util.JdbcUtil;
+import com.mysql.fabric.xmlrpc.base.Array;
 import com.mysql.jdbc.JDBC4PreparedStatement;
 
 public class StudentDaoImpl implements IStudentDao{
@@ -44,17 +46,37 @@ public class StudentDaoImpl implements IStudentDao{
 	public Student get(int id) {
 		
 		String sql = "select * from student where id = ?";
-		List<Student> list = CRUDtemplate.executeQuery(sql, id);
+		IResultSetHandler rh = new StuResultSetHandImp();
+		List<Student> list = CRUDtemplate.executeQuery(sql, rh, id);
 		return list.size() == 1 ? list.get(0) : null;
 	}
 
 	@Override
 	public List<Student> getAll() {
 		String sql = "select * from student";
-		return CRUDtemplate.executeQuery(sql);
+		IResultSetHandler rh = new StuResultSetHandImp();
+		return CRUDtemplate.executeQuery(sql, rh);
 	}
 
 
 	
 
 }
+
+class StuResultSetHandImp implements IResultSetHandler{
+	List<Student> list = new ArrayList<>();
+	@Override
+	public List handle(ResultSet res) throws Exception {
+		while (res.next()) {
+			Student stu = new Student();
+			stu.setId(res.getInt("id"));
+			stu.setName(res.getString("name"));
+			stu.setAge(res.getInt("age"));
+			list.add(stu);
+		}
+		return list;
+	}
+	
+}
+
+

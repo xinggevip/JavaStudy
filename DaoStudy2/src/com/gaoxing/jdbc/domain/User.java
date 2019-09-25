@@ -15,6 +15,11 @@ public class User {
 	public void setMoney(Integer money) {
 		this.money = money;
 	}
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", money=" + money + "]";
+	}
+	
 
 	
 
