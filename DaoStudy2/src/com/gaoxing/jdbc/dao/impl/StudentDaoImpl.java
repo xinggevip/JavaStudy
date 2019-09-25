@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.gaoxing.jdbc.dao.IStudentDao;
 import com.gaoxing.jdbc.domain.Student;
+import com.gaoxing.jdbc.util.CRUDtemplate;
 import com.gaoxing.jdbc.util.JdbcUtil;
 import com.mysql.jdbc.JDBC4PreparedStatement;
 
@@ -18,36 +19,16 @@ public class StudentDaoImpl implements IStudentDao{
 	public void save(Student stu) {
 		
 		String sql = "insert into student (name,age) value(?,?)";
-		this.executeUpdate(sql, stu.getName(),stu.getAge());
+		CRUDtemplate.executeUpdate(sql, stu.getName(),stu.getAge());
 		
 	}
 	
-	public static int executeUpdate(String sql,Object...params) {
-		Connection conn = JdbcUtil.getConn();
-		PreparedStatement stt = null;
-		try {
-			stt = conn.prepareStatement(sql);
-			// ±éÀú²ÎÊý
-			for(int i = 0;i < params.length;i++) {
-				stt.setObject(i+1, params[i]);
-			}
-			
-			return stt.executeUpdate();
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			JdbcUtil.clossAll(stt, conn);
-		}
-		return 0;
-	}
-
+	
 	@Override
 	public void update(int id,Student stu) {
 		
 		String sql = "update student set name = ?,age = ? where id = ?";
-		this.executeUpdate(sql, stu.getName(),stu.getAge(),id);
+		CRUDtemplate.executeUpdate(sql, stu.getName(),stu.getAge(),id);
 		
 	}
 
@@ -55,7 +36,7 @@ public class StudentDaoImpl implements IStudentDao{
 	public void delete(Integer id) {
 		
 		String sql = "delete from student where id = ?";
-		this.executeUpdate(sql, id);
+		CRUDtemplate.executeUpdate(sql, id);
 		
 	}
 
