@@ -1,5 +1,6 @@
 package com.gaoxing.jdbc.dao.impl;
 
+import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +11,6 @@ import com.gaoxing.jdbc.dao.IStudentDao;
 import com.gaoxing.jdbc.domain.Student;
 import com.gaoxing.jdbc.util.JdbcUtil;
 import com.mysql.jdbc.JDBC4PreparedStatement;
-import com.mysql.jdbc.PreparedStatement;
 
 public class StudentDaoImpl implements IStudentDao{
 
@@ -20,7 +20,7 @@ public class StudentDaoImpl implements IStudentDao{
 		String sql = "insert into student (name,age) value(?,?)";
 		PreparedStatement stt = null;
 		try {
-			stt = (PreparedStatement) conn.prepareStatement(sql);
+			stt = conn.prepareStatement(sql);
 			stt.setString(1, stu.getName());
 			stt.setInt(2, stu.getAge());
 			stt.executeUpdate();
@@ -40,7 +40,7 @@ public class StudentDaoImpl implements IStudentDao{
 		String sql = "update student set name = ?,age = ? where id = ?";
 		PreparedStatement stt = null;
 		try {
-			stt = (PreparedStatement) conn.prepareStatement(sql);
+			stt = conn.prepareStatement(sql);
 			stt.setString(1, stu.getName());
 			stt.setInt(2, stu.getAge());
 			stt.setInt(3, id);
@@ -61,7 +61,7 @@ public class StudentDaoImpl implements IStudentDao{
 		String sql = "delete from student where id = ?";
 		PreparedStatement stt = null;
 		try {
-			stt = (PreparedStatement) conn.prepareStatement(sql);
+			stt = conn.prepareStatement(sql);
 			stt.setInt(1, id);
 			stt.executeUpdate();
 			
@@ -81,7 +81,7 @@ public class StudentDaoImpl implements IStudentDao{
 		PreparedStatement stt = null;
 		ResultSet res = null;
 		try {
-			stt = (PreparedStatement) conn.prepareStatement(sql);
+			stt = conn.prepareStatement(sql);
 			stt.setInt(1, id);
 			String asSql = ((JDBC4PreparedStatement)stt).asSql();
 			System.out.println(asSql);
@@ -112,7 +112,7 @@ public class StudentDaoImpl implements IStudentDao{
 		ResultSet res = null;
 		List<Student> list = new ArrayList<Student>();
 		try {
-			stt = (PreparedStatement) conn.prepareStatement(sql);
+			stt = conn.prepareStatement(sql);
 			res = stt.executeQuery();
 			while(res.next()) {
 				Student stu = new Student();

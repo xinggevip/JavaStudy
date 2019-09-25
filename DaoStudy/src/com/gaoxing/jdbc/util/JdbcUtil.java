@@ -1,28 +1,38 @@
 package com.gaoxing.jdbc.util;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.security.spec.DSAGenParameterSpec;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp.BasicDataSourceFactory;
+
+import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 public class JdbcUtil {
-//	public static String url = "jdbc:mysql:///daotest?useSSL=false";
-	public static String url = "jdbc:mysql:///daotest?rewriteBatchedStatements=true";
-	public static String user = "root";
-	public static String password = "root";
-	public static String driveName = "com.mysql.jdbc.Driver";
-	public static BasicDataSource ds = null;
+
+	public static DataSource ds = null;
 	static {
 		// ≈‰÷√¡¨Ω”≥ÿ
-		ds = new BasicDataSource();
-        ds.setDriverClassName(driveName);
-        ds.setUsername(user);
-        ds.setPassword(password);
-        ds.setUrl(url);
+		try {
+			Properties p = new Properties();
+			FileInputStream in = new FileInputStream("resource/db.properties");
+			p.load(in);
+//			ds = BasicDataSourceFactory.createDataSource(p);
+			ds = DruidDataSourceFactory.createDataSource(p);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	public static Connection getConn() {

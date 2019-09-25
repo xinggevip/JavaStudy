@@ -14,16 +14,16 @@ import com.gaoxing.jdbc.util.JdbcUtil;
 
 public class DbcpTest {
 	public static void test1() throws Exception {
-		String url = "jdbc:mysql:///daotest?rewriteBatchedStatements=true";
-		String user = "root";
+		String url = "jdbc:mysql://localhost:3306/daotest?rewriteBatchedStatements=true";
+		String username = "root";
 		String password = "root";
-		String driveName = "com.mysql.jdbc.Driver";
+		String driverClassName = "com.mysql.jdbc.Driver";
 		
 		
 		// 配置连接池
 		BasicDataSource ds = new BasicDataSource();
-        ds.setDriverClassName(driveName);
-        ds.setUsername(user);
+        ds.setDriverClassName(driverClassName);//com.mysql.jdbc.Driver
+        ds.setUsername(username);
         ds.setPassword(password);
         ds.setUrl(url);
         // 从连接池获取connection对象
@@ -51,9 +51,9 @@ public class DbcpTest {
 			FileInputStream in = new FileInputStream("resource/db.properties");
 			p.load(in);
 			String url = p.getProperty("url");
-			String user = p.getProperty("user");
+			String user = p.getProperty("username");
 			String password = p.getProperty("password");
-			String driveName = p.getProperty("driveName");
+			String driveName = p.getProperty("driverClassName");
 			System.out.println(url);
 			System.out.println(user);
 			System.out.println(password);
