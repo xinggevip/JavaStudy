@@ -42,60 +42,16 @@ public class StudentDaoImpl implements IStudentDao{
 
 	@Override
 	public Student get(int id) {
-		Connection conn = JdbcUtil.getConn();
+		
 		String sql = "select * from student where id = ?";
-		PreparedStatement stt = null;
-		ResultSet res = null;
-		try {
-			stt = conn.prepareStatement(sql);
-			stt.setInt(1, id);
-			String asSql = ((JDBC4PreparedStatement)stt).asSql();
-			System.out.println(asSql);
-			res = stt.executeQuery();
-			if(res.next()) {
-				Student stu = new Student();
-				stu.setId(res.getInt("id"));
-				stu.setName(res.getString("name"));
-				stu.setAge(res.getInt("age"));
-				return stu;
-			}
-			
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			JdbcUtil.clossAll(res, stt, conn);
-		}
-		return null;
+		List<Student> list = CRUDtemplate.executeQuery(sql, id);
+		return list.size() == 1 ? list.get(0) : null;
 	}
 
 	@Override
 	public List<Student> getAll() {
-		Connection conn = JdbcUtil.getConn();
 		String sql = "select * from student";
-		PreparedStatement stt = null;
-		ResultSet res = null;
-		List<Student> list = new ArrayList<Student>();
-		try {
-			stt = conn.prepareStatement(sql);
-			res = stt.executeQuery();
-			while(res.next()) {
-				Student stu = new Student();
-				stu.setId(res.getInt("id"));
-				stu.setName(res.getString("name"));
-				stu.setAge(res.getInt("age"));
-				list.add(stu);
-			}
-			return list;
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			JdbcUtil.clossAll(res, stt, conn);
-		}
-		return null;
+		return CRUDtemplate.executeQuery(sql);
 	}
 
 
