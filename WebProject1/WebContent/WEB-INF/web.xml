@@ -29,4 +29,14 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MyServletTwo</display-name>
+    <servlet-name>MyServletTwo</servlet-name>
+    <servlet-class>com.gaoxing.servlet.MyServletTwo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyServletTwo</servlet-name>
+    <url-pattern>/myservlettwo</url-pattern>
+  </servlet-mapping>
 </web-app>
