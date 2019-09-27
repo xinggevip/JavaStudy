@@ -2,11 +2,15 @@ package com.gaoxing.StreamServlet;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.jni.Buffer;
 
 @WebServlet("/streamservlet")
 public class StreamServlet extends HttpServlet {
@@ -37,6 +41,23 @@ public class StreamServlet extends HttpServlet {
 		
 		// 关闭文件
 		in.close();
+		
+		// 读取多个字节码
+		FileInputStream in1 = new FileInputStream(path);
+		byte[] buffer = new byte[3];
+		int len = in1.read(buffer);
+		System.out.println(len); // 3 读了3个字符
+		System.out.println(Arrays.toString(buffer));
+		
+		len = in1.read(buffer);
+		System.out.println(len); // 1 读了1个字符
+		System.out.println(Arrays.toString(buffer));
+		
+		len = in1.read(buffer);
+		System.out.println(len); // -1 一个字符也没读
+		System.out.println(Arrays.toString(buffer));
+		// 关闭文件
+		in1.close();
 	}
 
 }
