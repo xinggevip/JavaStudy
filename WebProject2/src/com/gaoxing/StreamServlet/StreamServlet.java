@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.jni.Buffer;
 
+import sun.security.util.Length;
+
 @WebServlet("/streamservlet")
 public class StreamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -58,6 +60,21 @@ public class StreamServlet extends HttpServlet {
 		System.out.println(Arrays.toString(buffer));
 		// 关闭文件
 		in1.close();
+		
+		// 读取整个文件
+		System.out.println("--------华丽的分割线--------");
+		FileInputStream in2 = new FileInputStream(path);
+		byte[] buffer2 = new byte[3];
+		System.out.println(Arrays.toString(buffer2)); // [0,0]
+		
+		while((len = in2.read(buffer2)) != -1) {
+			System.out.println(len);
+			System.out.println(Arrays.toString(buffer2));
+			// 读取buffer2,从0开始读，读到len下标
+			System.out.println(new String(buffer2,0,len));
+		}
+		
+		in2.close();
 	}
 
 }
