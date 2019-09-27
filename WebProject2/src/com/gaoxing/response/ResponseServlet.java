@@ -37,7 +37,14 @@ public class ResponseServlet extends HttpServlet {
 //		response.sendRedirect("/WebProject2/reloca");
 		// 定时刷新重定向 隔3秒再重定向
 //		response.setHeader("refresh", "3;url=/WebProject2/reloca");
-		response.setHeader("refresh", "3;url=https://www.baidu.com");
+//		response.setHeader("refresh", "3;url=https://www.baidu.com");
+		
+		// 设置响应体
+		//response.setContentType("text/html");//内容类型，解析为javascript代码或html代码
+		//response.setCharacterEncoding("utf-8");//内容编码，防止出现中文乱码
+		response.setContentType("text/html;charset=utf-8");
+		// 响应字符
+		response.getWriter().write("<h1>标题</h1>");
 		
 		
 		
