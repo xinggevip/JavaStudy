@@ -50,7 +50,7 @@ public class MyServlet extends HttpServlet {
 		
 		String realPath4 = MyServlet.class.getClassLoader().getResource("d.txt").getPath();
 		System.out.println(realPath4);
-		
+		// 获取包中的文件路径
 		String realPath5 = MyServlet.class.getClassLoader().getResource("com/gaoxing/servlet/e.txt").getPath();
 		System.out.println(realPath5);
 		// 获取libraries
