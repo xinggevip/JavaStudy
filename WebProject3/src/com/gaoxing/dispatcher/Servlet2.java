@@ -13,6 +13,8 @@ public class Servlet2 extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Servlet2-----------");
+		Object obj = request.getAttribute("key");
+		System.out.println((String)obj);
 	}
 
 }

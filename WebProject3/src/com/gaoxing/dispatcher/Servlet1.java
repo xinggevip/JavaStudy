@@ -15,6 +15,8 @@ public class Servlet1 extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 请求转发
+		// Resquest域对象  能够存放共享数据
+		request.setAttribute("key", "value");
 		// 1.获取转发器 地址栏不会发生变化
 		RequestDispatcher disp = request.getRequestDispatcher("/Servlet2");
 		// servlet1办不了这事，于是用转发器把这俩参数给servlet2了
