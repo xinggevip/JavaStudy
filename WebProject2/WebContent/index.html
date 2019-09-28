@@ -14,5 +14,18 @@
 <a href="/WebProject2/downservlet?filename=幻灯片.mp4">幻灯片.mp4</a><br/>
 <a href="/WebProject2/downservlet?filename=girl.jpg">girl.jpg</a><br/>
 <a href="/WebProject2/downservlet?filename=美女.zip">美女.zip</a><br/>
+<h2>验证码</h2>
+<form action="/WebProject2/RegistServlet">
+	<img src="/WebProject2/CheckCodeServlet" onclick="change(this)"><br/>
+	<input type="text" placeholder="请输入验证码" name="code"/>
+	<input type="submit" value="提交"/>
+</form>
+
+
+<script>
+	function change(obj){
+		obj.src = "/WebProject2/CheckCodeServlet?time" + new Date().getTime();
+	}
+</script>
 </body>
 </html>
