@@ -18,52 +18,7 @@
 
 <%@ include file="header.jsp" %>
 
-<!--中部搜索-->
-<div class="header_center">
-    <!--版心-->
-    <div class="h_c_center">
 
-        <!--左侧logo-->
-        <div class="h_c_logo">
-            <img src="images/log.png" alt="">
-        </div>
-
-        <!--中部搜索-->
-        <div class="h_c_search">
-
-            <form action="#">
-                <input type="text" placeholder="请输入想要的宝贝..." class="s_input">
-                <input type="submit" value="搜索" class="s_button">
-            </form>
-
-            <div class="hot">
-                <a href="#">新款连衣裙</a>
-                <a href="#">四件套</a>
-                <a href="#">潮流T恤</a>
-                <a href="#">时尚女鞋</a>
-                <a href="#">短裤半身裙</a>
-            </div>
-        </div>
-        <!--右部二维码-->
-        <div class="h_c_code">
-            <img src="images/pcode.png" alt="">
-        </div>
-    </div>
-</div>
-
-<!--导航-->
- <div id="nav">
-     <ul>
-         <li><a href="#">首页</a></li>
-         <li><a href="goods_list.jsp">电脑办公</a></li>
-         <li><a href="#">家具家居</a></li>
-         <li><a href="#">鲜果时光</a></li>
-         <li><a href="#">图书音像</a></li>
-         <li><a href="#">母婴孕婴</a></li>
-     </ul>
- </div>   
-
-</div>
 
 <!--广告页-->
 <div id="ad">

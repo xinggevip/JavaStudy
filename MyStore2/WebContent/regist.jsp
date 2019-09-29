@@ -30,7 +30,7 @@
 
     <div id="reg_main">
         <div class="main_left">
-            <form action="/MyStore/RegistServlet" id="reg_form" method="POST">
+            <form action="/MyStore2/RegistServlet" id="reg_form" method="POST">
                 <div>
                     <label>用户名</label>
                     <input id="username" type="text" placeholder="请输入用户名" name="username">
@@ -50,7 +50,7 @@
                 <div class="check_box">
                     <label>验证码</label>
                     <input id="code" type="text" name="code">
-                    <img src="/MyStore/CheckCodeServlet" alt="验证码" onclick="change(this)">
+                    <img src="/MyStore2/CheckCodeServlet" alt="验证码" onclick="change(this)">
                 </div>
                 <div class="submit_button">
                     <input type="button" value="立即注册" onclick="checkData()">
@@ -67,7 +67,7 @@
 
     <script>
         function change(obj) {
-            obj.src = "/MyStore/CheckCodeServlet?time" + new Date().getTime();
+            obj.src = "/MyStore2/CheckCodeServlet?time" + new Date().getTime();
         }
         function checkData() {
             // 1.获取用户名，密码，确认密码
