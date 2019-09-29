@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!--头部-->
 <div id="header">
 <!--头部登录，购物车-->
@@ -13,10 +13,21 @@
             </div>
             <!--中部右侧-->
             <div class="h_top_right">
-                <a href="login.jsp">登录</a>
+            <!-- 判断有没有 用户 session  -->
+            <c:if test="${empty user }">
+            	<a href="login.jsp">登录</a>
                 <a href="regist.jsp">免费注册</a>
-                <a href="#">购物车</a>
-                <a href="#">我的订单</a>
+            </c:if>
+            
+            <c:if test="${!empty user }">
+            	<a href="javascript:;">欢迎：${user.username}</a>
+                <a href="/MyStore2/SignOut">退出</a>
+            </c:if>
+            
+            <a href="#">购物车</a>
+            <a href="#">我的订单</a>
+            
+                
             </div>
         </div>
 </div>

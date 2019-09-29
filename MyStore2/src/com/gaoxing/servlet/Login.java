@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -49,6 +50,9 @@ public class Login extends HttpServlet {
 		// 查到了
 		if (u != null) {
 			response.getWriter().write("登录成功！3秒后跳转到首页...");
+			// 把用户保存起来
+			HttpSession session = request.getSession();
+			session.setAttribute("user", u);
 			response.setHeader("refresh", "3;url=/MyStore2/index.jsp");
 		}else {
 			response.getWriter().write("登录失败！3秒后跳转到登陆页面...");
