@@ -19,6 +19,8 @@ public class SessionServlet2 extends HttpServlet {
 		HttpSession session = request.getSession();
 		String value = (String)session.getAttribute("key");
 		System.out.println(value);
+		// 主动销毁session对象
+		//session.invalidate();
 	}
 
 }
