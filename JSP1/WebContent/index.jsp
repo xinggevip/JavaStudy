@@ -13,12 +13,15 @@
 
 <%
 	List list = new ArrayList();
-	int i = 1/0;
 %>
-
-<%@ include file="header.jsp" %>
+<!-- 静态包含，编译成一个文件 -->
+<%-- <%@ include file="header.jsp" %>
 <h1>主体</h1>
-<%@ include file="footer.jsp" %>
+<%@ include file="footer.jsp" %> --%>
 
+<!-- 动态包含，编译成三个文件 -->
+<jsp:include page="header.jsp"></jsp:include>
+<h1>主体</h1>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
