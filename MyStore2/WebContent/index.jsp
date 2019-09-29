@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>码蚁商城</title>
     <!--链接外部样式-->
     <link rel="stylesheet" href="style/headerStyle.css">
@@ -14,25 +15,8 @@
 
 </head>
 <body>
-<!--头部-->
-<div id="header">
-<!--头部登录，购物车-->
-<div class="header_top">
-        <!--中部-->
-        <div class="header_top_center">
-            <!--中部左侧-->
-            <div class="h_top_left">
-                欢迎来到码蚁商城
-            </div>
-            <!--中部右侧-->
-            <div class="h_top_right">
-                <a href="login.html">登录</a>
-                <a href="regist.html">免费注册</a>
-                <a href="#">购物车</a>
-                <a href="#">我的订单</a>
-            </div>
-        </div>
-</div>
+
+<%@ include file="header.jsp" %>
 
 <!--中部搜索-->
 <div class="header_center">
@@ -71,7 +55,7 @@
  <div id="nav">
      <ul>
          <li><a href="#">首页</a></li>
-         <li><a href="goods_list.html">电脑办公</a></li>
+         <li><a href="goods_list.jsp">电脑办公</a></li>
          <li><a href="#">家具家居</a></li>
          <li><a href="#">鲜果时光</a></li>
          <li><a href="#">图书音像</a></li>
@@ -96,7 +80,7 @@
     <div class="ms_body">
         <ul>
             <li>
-                <a href="detail.html">
+                <a href="detail.jsp">
                     <img src="images/goods/good1.png" alt="">
                     <p>小米（MI）小米净化器2智能家用卧室空气净化器除甲醛雾霾P</p>
                     <i class="yuan">￥</i><span class="price">599</span>
@@ -207,39 +191,7 @@
     </div>
 </div>
 
-<!--尾部-->
-<div id="footer">
-    <!--关于我们-->
-    <div class="link">
-        <a href="#">关于我们</a>
-        |
-        <a href="#">联系我们</a>
-        |
-        <a href="#">人才招聘</a>
-        |
-        <a href="#">商家入驻</a>
-        |
-        <a href="#">广告服务</a>
-        |
-        <a href="#">手机码蚁</a>
-        |
-        <a href="#">友情链接</a>
-        |
-        <a href="#">销售联盟</a>
-        |
-        <a href="#">码蚁社区
-        </a>
-        |
-        <a href="#">码蚁公益</a>
-    </div>
-    <!--版权-->
-    <div class="copyright">
-        Copyright&nbsp;&copy;&nbsp;2017-2018&nbsp;&nbsp;码蚁My.com&nbsp;版权所有
-    </div>
-</div>
-
-</body>
-
+<%@ include file="footer.jsp" %>
 
 
 </html>

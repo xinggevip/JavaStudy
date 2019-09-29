@@ -14,25 +14,8 @@
     <link rel="stylesheet" href="style/pageStyle.css">
 </head>
 <body>
-<!--头部-->
-<div id="header">
-    <!--头部登录，购物车-->
-    <div class="header_top">
-        <!--中部-->
-        <div class="header_top_center">
-            <!--中部左侧-->
-            <div class="h_top_left">
-                欢迎来到码蚁商城
-            </div>
-            <!--中部右侧-->
-            <div class="h_top_right">
-                <a href="login.html">登录</a>
-                <a href="#">免费注册</a>
-                <a href="#">购物车</a>
-                <a href="#">我的订单</a>
-            </div>
-        </div>
-    </div>
+
+<%@ include file="header.jsp" %>
 
     <!--中部搜索-->
     <div class="header_center">
@@ -193,36 +176,7 @@
     <div id="page" class="page_div"></div>
 </div>
 
-<!--尾部-->
-<div id="footer">
-    <!--关于我们-->
-    <div class="link">
-        <a href="#">关于我们</a>
-        |
-        <a href="#">联系我们</a>
-        |
-        <a href="#">人才招聘</a>
-        |
-        <a href="#">商家入驻</a>
-        |
-        <a href="#">广告服务</a>
-        |
-        <a href="#">手机码蚁</a>
-        |
-        <a href="#">友情链接</a>
-        |
-        <a href="#">销售联盟</a>
-        |
-        <a href="#">码蚁社区
-        </a>
-        |
-        <a href="#">码蚁公益</a>
-    </div>
-    <!--版权-->
-    <div class="copyright">
-        Copyright&nbsp;&copy;&nbsp;2017-2018&nbsp;&nbsp;码蚁My.com&nbsp;版权所有
-    </div>
-</div>
+<%@ include file="footer.jsp" %>
 
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="js/paging.js"></script>

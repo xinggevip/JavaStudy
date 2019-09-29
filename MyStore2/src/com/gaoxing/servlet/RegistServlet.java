@@ -70,11 +70,11 @@ public class RegistServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			response.getWriter().write("注册成功！3秒后跳转到登陆页面...");
-			response.setHeader("refresh", "3;url=/MyStore/login.html");
+			response.setHeader("refresh", "3;url=/MyStore2/login.html");
 			
 		}else {
 			response.getWriter().write("验证码错误！3秒后跳转到注册页面...");
-			response.setHeader("refresh", "3;url=/MyStore/regist.html");
+			response.setHeader("refresh", "3;url=/MyStore2/regist.html");
 		}
 	}
 

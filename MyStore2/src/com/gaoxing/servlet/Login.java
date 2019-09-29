@@ -49,10 +49,10 @@ public class Login extends HttpServlet {
 		// 查到了
 		if (u != null) {
 			response.getWriter().write("登录成功！3秒后跳转到首页...");
-			response.setHeader("refresh", "3;url=/MyStore/index.html");
+			response.setHeader("refresh", "3;url=/MyStore2/index.jsp");
 		}else {
 			response.getWriter().write("登录失败！3秒后跳转到登陆页面...");
-			response.setHeader("refresh", "3;url=/MyStore/login.html");
+			response.setHeader("refresh", "3;url=/MyStore2/login.jsp");
 		}
 
 	}
