@@ -3,6 +3,7 @@
 <%@page import="com.gaoxing.domain.Goods"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +28,7 @@
         <ul>
         <%
         	// 从域当中取数据
-        	List<Goods> allGoods = (List<Goods>)request.getAttribute("allGoods");
+        	/* List<Goods> allGoods = (List<Goods>)request.getAttribute("allGoods");
         	System.out.println(allGoods);
         	if(allGoods != null){
         		for(Goods item:allGoods){
@@ -42,10 +43,28 @@
         		}
         	}else{
         		out.write("没有商品");
-        	}
+        	} */
         	
+        	List<Goods> allGoods = (List<Goods>)request.getAttribute("allGoods");
+        	System.out.println(allGoods);
         %>
-          
+        <c:if test="${empty allGoods }">
+        	没有商品
+        </c:if>
+        
+        
+       	<c:forEach items="${allGoods }" var="item">
+       		<li>
+       			<a href=''>
+       				<img src='./images/pimages/${item.image }' alt=''>
+       				<p>${item.name } }</p>
+       				<i class='yuan'>￥</i><span class='price'>${item.price }</span>
+       			</a>
+       		</li>
+       	</c:forEach>
+       
+        
+          	
         </ul>
     </div>
     <!--分页-->
