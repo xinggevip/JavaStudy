@@ -21,6 +21,7 @@ public class SessionServlet2 extends HttpServlet {
 		System.out.println(value);
 		// 主动销毁session对象
 		//session.invalidate();
+		System.out.println(session);
 	}
 
 }

@@ -3,6 +3,7 @@ package com.gaoxing.Session;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,14 @@ public class SessionServlet extends HttpServlet {
 		
 		// 1.获取session
 		HttpSession session = request.getSession();
+		// Session域持久化
+		Cookie cookie = new Cookie("JSESSIONID", session.getId());
+		cookie.setPath("/CookSession");
+		cookie.setMaxAge(60*2);
+		response.addCookie(cookie);
+		System.out.println(session);
 		session.setAttribute("key", "value");
+		// 关闭浏览器并不会销毁id，只是id存到了缓存中，id伴随着缓存没了，只要让缓存持久化就行了
 	}
 
 }
