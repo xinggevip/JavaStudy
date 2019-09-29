@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="WebProject1" path="/WebProject1" reloadable="true" source="org.eclipse.jst.jee.server:WebProject1"/><Context docBase="WebProject2" path="/WebProject2" reloadable="true" source="org.eclipse.jst.jee.server:WebProject2"/><Context docBase="WebProject3" path="/WebProject3" reloadable="true" source="org.eclipse.jst.jee.server:WebProject3"/><Context docBase="MyStore" path="/MyStore" reloadable="true" source="org.eclipse.jst.jee.server:MyStore"/><Context docBase="CookSession" path="/CookSession" reloadable="true" source="org.eclipse.jst.jee.server:CookSession"/></Host>
+      <Context docBase="WebProject1" path="/WebProject1" reloadable="true" source="org.eclipse.jst.jee.server:WebProject1"/><Context docBase="WebProject2" path="/WebProject2" reloadable="true" source="org.eclipse.jst.jee.server:WebProject2"/><Context docBase="WebProject3" path="/WebProject3" reloadable="true" source="org.eclipse.jst.jee.server:WebProject3"/><Context docBase="MyStore" path="/MyStore" reloadable="true" source="org.eclipse.jst.jee.server:MyStore"/><Context docBase="CookSession" path="/CookSession" reloadable="true" source="org.eclipse.jst.jee.server:CookSession"/><Context docBase="JSP1" path="/JSP1" reloadable="true" source="org.eclipse.jst.jee.server:JSP1"/></Host>
     </Engine>
   </Service>
 </Server>
