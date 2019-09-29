@@ -23,5 +23,8 @@
 <jsp:include page="header.jsp"></jsp:include>
 <h1>主体</h1>
 <jsp:include page="footer.jsp"></jsp:include>
+
+<!-- 请求转发,地址不会发生变化 -->
+<jsp:forward page="test.jsp"></jsp:forward>
 </body>
 </html>
