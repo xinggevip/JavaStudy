@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.gaoxing.domain.Admin;
 import com.gaoxing.service.AdminService;
 
 @WebServlet("/AdminServlet")
@@ -22,8 +24,13 @@ public class AdminServlet extends HttpServlet {
 		// 调用登录的业务
 		AdminService adminService = new AdminService();
 		try {
-			adminService.login(username,password);
-			System.out.println("登录成功");
+			Admin admin = adminService.login(username,password);
+			// 1.登录成功把用户存到session
+			HttpSession session = request.getSession();
+			session.setAttribute("admin", admin);
+			// 2.跳转到后台首页，浏览器301重定向跳转
+			response.sendRedirect(request.getContextPath()+"/admin/admin_index.jsp");
+			
 		} catch (Exception e) {
 			if (e.getMessage().equals("用户名或密码错误")) {
 				System.out.println("登录失败");
