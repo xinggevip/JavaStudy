@@ -9,7 +9,7 @@ public class Goods {
 	private String name;
 	private Double price;
 	private String image;
-	private String desc;
+	private String gdesc;
 	private Integer is_hot;
 	private Integer cid;
 	@Override
