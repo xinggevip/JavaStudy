@@ -26,7 +26,7 @@ public class GoodsDao {
 	
 	// 2.添加商品到数据库
 	public void addGoods(Goods goods) throws SQLException {
-		String sql = "insert into goods(name,price,image) value(?,?,?)";
+		String sql = "insert into goods(name,price,image,desc,is_hot,cid) value(?,?,?,?,?,?)";
 		qr.update(sql, goods.getName(),goods.getPrice(),goods.getImage());
 	}
 	
@@ -38,7 +38,7 @@ public class GoodsDao {
 	
 	// 4.更新商品
 	public void updateGoods(Goods goods) throws SQLException {
-		String sql = "update goods set name=?,price=?,image=? where id=?";
+		String sql = "update goods set name=?,price=?,image=?,desc=?,is_hot=?cid=? where id=?";
 		qr.update(sql,goods.getName(),goods.getPrice(),goods.getImage(),goods.getId());
 	}
 	

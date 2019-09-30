@@ -14,4 +14,9 @@ public class GoodsService {
 		return allGoods;
 	}
 
+	public void deleteGoods(String id) throws SQLException {
+		GoodsDao goodsDao = new GoodsDao();
+		goodsDao.delGoods(Integer.parseInt(id));
+	}
+
 }
