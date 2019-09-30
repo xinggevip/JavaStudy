@@ -1,4 +1,4 @@
-package com.gaoxing.servlet;
+package com.gaoxing.web;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -15,6 +15,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.gaoxing.domain.Goods;
 import com.gaoxing.jdbc.util.JdbcUtil;
+import com.gaoxing.service.GoodsService;
 
 @WebServlet("/GoodServlet")
 public class GoodServlet extends HttpServlet {
@@ -29,6 +30,8 @@ public class GoodServlet extends HttpServlet {
 		 */
 		
 		List<Goods> allGoods = null;
+		
+		/*
 		// 1.连接数据库
 		QueryRunner qr = JdbcUtil.getQueryRunner();
 		// 2.从数据库中获取数据
@@ -40,6 +43,14 @@ public class GoodServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		// 3.把数据存到request域中
+		request.setAttribute("allGoods", allGoods);
+		// 4.转发到商品列表页面，转发时把request对象传入
+		request.getRequestDispatcher("/goods_list.jsp").forward(request, response);
+		*/
+		
+		GoodsService goodsService = new GoodsService();
+		allGoods = goodsService.findAllGoods();
 		// 3.把数据存到request域中
 		request.setAttribute("allGoods", allGoods);
 		// 4.转发到商品列表页面，转发时把request对象传入

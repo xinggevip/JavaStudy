@@ -1,4 +1,4 @@
-package com.gaoxing.servlet;
+package com.gaoxing.web;
 
 import java.awt.Color;
 import java.awt.Font;

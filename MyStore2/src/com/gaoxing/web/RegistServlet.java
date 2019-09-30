@@ -1,4 +1,4 @@
-package com.gaoxing.servlet;
+package com.gaoxing.web;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
