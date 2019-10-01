@@ -26,4 +26,13 @@ public class GoodsService {
 		
 	}
 
+	public Goods getGoodsWidthId(String id) throws NumberFormatException, SQLException {
+		return goodsDao.getGoodsWidthId(Integer.valueOf(id));
+		
+	}
+
+	public void updateGoods(Goods goods) throws SQLException {
+		goodsDao.updateGoods(goods);
+	}
+
 }

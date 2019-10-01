@@ -14,8 +14,10 @@ public class Goods {
 	private Integer cid;
 	@Override
 	public String toString() {
-		return "domain [id=" + id + ", name=" + name + ", price=" + price + ", image=" + image + "]";
+		return "Goods [id=" + id + ", name=" + name + ", price=" + price + ", image=" + image + ", gdesc=" + gdesc
+				+ ", is_hot=" + is_hot + ", cid=" + cid + "]";
 	}
+	
 	
 
 }

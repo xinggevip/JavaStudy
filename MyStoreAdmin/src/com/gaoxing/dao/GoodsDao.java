@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.gaoxing.domain.Goods;
@@ -38,8 +39,16 @@ public class GoodsDao {
 	
 	// 4.更新商品
 	public void updateGoods(Goods goods) throws SQLException {
-		String sql = "update goods set name=?,price=?,image=?,gdesc=?,is_hot=?cid=? where id=?";
+		String sql = "update goods set name=?,price=?,image=?,gdesc=?,is_hot=?,cid=? where id=?";
 		qr.update(sql,goods.getName(),goods.getPrice(),goods.getImage(),goods.getGdesc(),goods.getIs_hot(),goods.getCid(),goods.getId());
+	}
+
+	public Goods getGoodsWidthId(Integer id) throws SQLException {
+		String sql = "select * from goods where id=?";
+		Goods goods = null;
+		goods = qr.query(sql, new BeanHandler<Goods>(Goods.class),id);
+		return goods;
+		
 	}
 	
 
