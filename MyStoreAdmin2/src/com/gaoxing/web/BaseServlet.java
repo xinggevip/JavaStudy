@@ -1,4 +1,4 @@
-package com.gaoxing.test;
+package com.gaoxing.web;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class BaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		String action = request.getParameter("action");
 		String desPath = null;
 		// 获取当前对象的字节码

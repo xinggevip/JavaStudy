@@ -68,8 +68,8 @@
 			<li><img src="${ctx }/admin/images/pimages/${goods.image}" ></li>
 			<li>${goods.name }</li>
 			<li>${goods.price }</li>
-			<li><a href="${ctx }/GoodsEditUIServlet?id=${goods.id}"><img class="img_icon" src="${ctx }/admin/images/edit_icon.png" ></a></li>
-			<li><a href="${ctx }/GoodsDelServlet?id=${goods.id}"><img class="img_icon" src="${ctx }/admin/images/delete_icon.png"></a></li>
+			<li><a href="${ctx }/GoodServlet?action=editGoodsUi&id=${goods.id}"><img class="img_icon" src="${ctx }/admin/images/edit_icon.png" ></a></li>
+			<li><a href="${ctx }/GoodServlet?action=delGoods&id=${goods.id}"><img class="img_icon" src="${ctx }/admin/images/delete_icon.png"></a></li>
 		</ul>
 		</c:forEach>
 		
@@ -91,7 +91,7 @@
     });
 
     $("#add").click(function () {
-        $(window).attr('location',"${ctx}/GoodsAddUIServlet");
+        $(window).attr('location',"${ctx}/GoodServlet?action=addGoodsUi");
     });
 
 </script>

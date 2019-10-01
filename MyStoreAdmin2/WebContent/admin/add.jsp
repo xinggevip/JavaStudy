@@ -23,7 +23,7 @@
     <hr>
 	
     <div class="edit_content">
-		<form action="${ctx }/GoodsAddServlet" method="post" id="add_form" style="background: none; width: 700px;">
+		<form action="${ctx }/GoodServlet?action=addGood" method="post" id="add_form" style="background: none; width: 700px;">
 			<div class="item1">
             <div>
                 <span>商品名称：</span>

@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gaoxing.test.BaseServlet;
-
 @WebServlet("/TestServlet")
 public class TestServlet extends BaseServlet {
 	

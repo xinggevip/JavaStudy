@@ -23,7 +23,7 @@
     <hr>
 	
     <div class="edit_content">
-		<form action="${ctx }/GoodsEditServlet" method="post" id="edit_form" style="background: none; width: 700px;">
+		<form action="${ctx }/GoodServlet?action=editGoods" method="post" id="edit_form" style="background: none; width: 700px;">
 			<div class="item1">
 			 <input type="text"  name="id" value="${goods.id }" style="display:none">
             <div>
